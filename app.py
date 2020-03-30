@@ -2,14 +2,35 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import altair as alt
+from datetime import datetime
 from libs.county_utils import *
 
 # Setup title and welcome
+now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 st.title('Missoula Covid-19 Dashboard')
 st.text('Welcome to the Missoula Covid-19 Dashboard')
+st.text('Last update: {}'.format(now))
 
 # Bring in data for Montana and Missoula
 data = CovidTrends(county=30063).get_covid_data()
+
+# Get current numbers
+mt_cases = data['Montana'].iloc[-1]
+zoo_cases = data['Missoula'].iloc[-1]
+
+st.markdown(
+    """
+    |        | Total Cases |
+    |--------|-------------|
+    |Montana |{mt_cases}   |
+    |Missoula|{zoo_cases}  |
+    """.format(
+        mt_cases=mt_cases,
+        zoo_cases=zoo_cases
+    )
+)
+st.text("")
+st.text("")
 
 # Create checkbox to view dataframe
 if st.checkbox('Show Covid-19 data'):
@@ -54,7 +75,7 @@ diff_melt = pd.melt(
 # Plot epidemic curve
 chart_diff = (
     alt.Chart(diff_melt)
-    .mark_bar(opacity=0.7, width=25)
+    .mark_bar(opacity=0.7, width=20)
     .encode(
         x='Date',
         y=alt.Y('New Cases', stack=None),
