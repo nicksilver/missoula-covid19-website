@@ -12,7 +12,10 @@ st.text('Welcome to the Missoula Covid-19 Dashboard')
 st.text('Last update: {}'.format(now))
 
 # Bring in data for Montana and Missoula
-data = CovidTrends(county=30063).get_covid_data()
+zoo_data = CovidTrends(county=30063).get_covid_data()
+gal_data = CovidTrends(county=30031).get_covid_data()
+data = pd.merge(zoo_data, gal_data['Gallatin'], how='inner', left_index=True, right_index=True)
+
 
 # Get current numbers
 mt_cases = data['Montana'].iloc[-1]
@@ -44,7 +47,7 @@ df = data.copy()
 df['Date'] = df.index
 df_melt = pd.melt(
     df, id_vars='Date', 
-    value_vars=['Montana', 'Missoula'], 
+    value_vars=['Montana', 'Missoula', 'Gallatin'], 
     value_name='Total Cases', 
     var_name='Location'
     )
@@ -67,7 +70,7 @@ diff = data.diff()
 diff['Date'] = diff.index
 diff_melt = pd.melt(
     diff, id_vars='Date', 
-    value_vars=['Montana', 'Missoula'], 
+    value_vars=['Montana', 'Missoula', 'Gallatin'], 
     value_name='New Cases', 
     var_name='Location'
     )
@@ -75,7 +78,7 @@ diff_melt = pd.melt(
 # Plot epidemic curve
 chart_diff = (
     alt.Chart(diff_melt)
-    .mark_bar(opacity=0.7, width=20)
+    .mark_bar(width=20, opacity=0.5)
     .encode(
         x='Date',
         y=alt.Y('New Cases', stack=None),

@@ -43,11 +43,11 @@ class CovidTrends(object):
             left_index=True, right_index=True)
         return state_fill_df[self.state].fillna(nls_df['MT Cases']).to_frame()
   
-    def fill_missoula_county_data(self, county_df):
+    def fill_county_data(self, county_df):
         nls_df = pd.read_csv(nls_mt_data, parse_dates=[0], index_col=['date'])
-        county_df = pd.merge(county_df[self.county], nls_df['Missoula Cases'], how='outer', 
+        county_df = pd.merge(county_df[self.county], nls_df[self.county_name], how='outer', 
             left_index=True, right_index=True)
-        return county_df[self.county].fillna(county_df['Missoula Cases']).to_frame()
+        return county_df[self.county].fillna(county_df[self.county_name]).to_frame()
 
     def get_covid_data(self):
 
@@ -61,8 +61,8 @@ class CovidTrends(object):
             if self.county:
                 county_df = self.select_county_data()
 
-                if self.county == 30063:
-                    county_df = self.fill_missoula_county_data(county_df)
+                if self.county == 30063 or self.county == 30031:
+                    county_df = self.fill_county_data(county_df)
 
                 df = pd.merge(state_fill_df, county_df, how='outer', right_index=True, left_index=True)
                 df.columns = [self.state, self.county_name]
