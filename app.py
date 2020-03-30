@@ -8,7 +8,6 @@ from libs.county_utils import *
 # Setup title and welcome
 now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 st.title('Missoula Covid-19 Dashboard')
-st.text('Welcome to the Missoula Covid-19 Dashboard')
 st.text('Last update: {}'.format(now))
 
 # Bring in data for Montana and Missoula
@@ -78,10 +77,10 @@ diff_melt = pd.melt(
 # Plot epidemic curve
 chart_diff = (
     alt.Chart(diff_melt)
-    .mark_bar(width=20, opacity=0.5)
+    .mark_bar(width=20, opacity=0.4)
     .encode(
         x='Date',
-        y=alt.Y('New Cases', stack=None),
+        y=alt.Y('New Cases', stack=False),
         color='Location',
     )
 ).interactive()
