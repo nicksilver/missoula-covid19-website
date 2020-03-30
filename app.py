@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 import pandas as pd
 import altair as alt
 from libs.county_utils import *
@@ -84,3 +85,9 @@ st.markdown(
     Code for this website is hosted at: <https://github.com/nicksilver/missoula-covid19-website> 
     """
 )
+st.text("")
+st.text("")
+st.text("")
+# image = Image.open('./static/logo_final_square_trans.png')
+image = Image.open('./static/logo_final_text_long_trans.png')
+st.image(image, width=200, )
