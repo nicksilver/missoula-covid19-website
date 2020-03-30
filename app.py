@@ -69,9 +69,9 @@ st.markdown(
     This dashboard shows trends in Covid-19 for Montana and Missoula 
     since our first cases were confirmed in early March. 
     
-    There is a lot we can do with data. This will be an on going project
-    so check back frequently for updates. I am taking requests for types of d
-    ata to visualize and models to build for the community. 
+    There is a lot we can do with data. This will be an on going project...
+    so check back frequently for updates. I am taking requests for types of 
+    data to visualize and models to build for the community. 
 
     Please feel free to reach out if there are ways I can help: 
     <nick.covid19@gmail.com>
