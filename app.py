@@ -15,10 +15,42 @@ zoo_data = CovidTrends(county=30063).get_covid_data()
 gal_data = CovidTrends(county=30031).get_covid_data()
 data = pd.merge(zoo_data, gal_data['Gallatin'], how='inner', left_index=True, right_index=True)
 
-
 # Get current numbers
 mt_cases = data['Montana'].iloc[-1]
 zoo_cases = data['Missoula'].iloc[-1]
+gal_cases = data['Gallatin'].iloc[-1]
+
+# Setup sidebar widgets
+location = st.sidebar.multiselect(
+    label='Choose location:',
+    options=data.columns.to_list(),
+    default=['Montana', 'Missoula']
+)
+
+if not location:
+    st.error("Please select at least one location")
+
+data = data[location]
+
+# Melt data frame
+df = data.copy()
+df['Date'] = df.index
+df_melt = pd.melt(
+    df, id_vars='Date', 
+    value_vars=location, 
+    value_name='Total Cases', 
+    var_name='Location'
+    )
+
+# Calculate difference and melt dataframe
+diff = data.diff()
+diff['Date'] = diff.index
+diff_melt = pd.melt(
+    diff, id_vars='Date', 
+    value_vars=location, 
+    value_name='New Cases', 
+    var_name='Location'
+    )
 
 st.markdown(
     """
@@ -26,9 +58,11 @@ st.markdown(
     |--------|-------------|
     |Montana |{mt_cases}   |
     |Missoula|{zoo_cases}  |
+    |Gallatin|{gal_cases}  |
     """.format(
         mt_cases=mt_cases,
-        zoo_cases=zoo_cases
+        zoo_cases=zoo_cases,
+        gal_cases=gal_cases
     )
 )
 st.text("")
@@ -40,16 +74,6 @@ if st.checkbox('Show Covid-19 data'):
         '#### Number of Confirmed Covid-19 Cases:', 
         data.sort_index(ascending=False)
         )
-
-# Melt data frame
-df = data.copy()
-df['Date'] = df.index
-df_melt = pd.melt(
-    df, id_vars='Date', 
-    value_vars=['Montana', 'Missoula', 'Gallatin'], 
-    value_name='Total Cases', 
-    var_name='Location'
-    )
 
 # Plot cumulative cases over time
 chart = (
@@ -64,15 +88,6 @@ chart = (
 
 st.altair_chart(chart, use_container_width=True)
 
-# Calculate difference and melt dataframe
-diff = data.diff()
-diff['Date'] = diff.index
-diff_melt = pd.melt(
-    diff, id_vars='Date', 
-    value_vars=['Montana', 'Missoula', 'Gallatin'], 
-    value_name='New Cases', 
-    var_name='Location'
-    )
 
 # Plot epidemic curve
 chart_diff = (
