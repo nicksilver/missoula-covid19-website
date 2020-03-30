@@ -45,9 +45,9 @@ class CovidTrends(object):
   
     def fill_missoula_county_data(self, county_df):
         nls_df = pd.read_csv(nls_mt_data, parse_dates=[0], index_col=['date'])
-        county_df = pd.merge(county_df[self.county], nls_df['Missoula Cases'], how='outer', 
+        county_df = pd.merge(county_df[self.county], nls_df['Missoula'], how='outer', 
             left_index=True, right_index=True)
-        return county_df[self.county].fillna(county_df['Missoula Cases']).to_frame()
+        return county_df[self.county].fillna(county_df['Missoula']).to_frame()
 
     def get_covid_data(self):
 
