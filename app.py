@@ -164,18 +164,18 @@ chart_mod = alt.layer(chart_sir, chart_actual)
 
 st.altair_chart(chart_mod, use_container_width=True)
 
-#
-
+# Bottom text
 st.markdown(
     """
     ### Model caveats
     
-    I am not an epidemiologist by training. **Use these predictions at your own risk.** 
-    
-    This is a very (overly) simple [SIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology)
+    I am not an epidemiologist by training, but I enjoy looking at (and trying to understand) data.
+    This is an overly simple [SIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology)
     and should be taken with a grain of salt. There are many complexities to the Covid-19
     virus that this model does not account for (e.g. asymptomatic cases). Nonetheless, I hope it is still somewhat
-    useful. I will update the model every day around 5pm with new incoming data. 
+    useful. Please interpret these results wisely.
+    
+    **I will update the model every day around 5pm with new incoming data.**
     
     ### Important questions to consider (help me answer them):
 
@@ -215,3 +215,6 @@ st.text("")
 # image = Image.open('./static/logo_final_square_trans.png')
 image = Image.open('./static/logo_final_text_long_trans.png')
 st.image(image, width=200, )
+
+#TODO: Add time to peak, beta, gamma, and HIT interprations for the model results
+#TODO: Add uncertainty to parameters

@@ -30,10 +30,14 @@ for mod_loc in mod_locs:
 
     if mod_loc == 'Montana':
         N = 10000
-    elif mod_loc == 'Missoula' or mod_loc == 'Gallatin':
+    elif mod_loc == 'Missoula': 
         N = 1000
+    elif mod_loc == 'Gallatin':
+        N = 1000 
 
-    l = SirLearner(data, mod_loc, loss, 90, 0, 2, N)
+    l = SirLearner(data, mod_loc, loss, 200, 0, 2, N)
     beta, gamma, df_mod = l.train()
+    print('beta = ' + str(beta))
+    print('gamma = ' + str(gamma))
     df_mod['Date'] = df_mod.index
     df_mod.to_csv('data/' + fname)

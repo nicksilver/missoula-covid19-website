@@ -77,7 +77,8 @@ class SirLearner(object):
             [0.001, 0.001], 
             args=(data, self.s_0, self.i_0, self.r_0), 
             method='L-BFGS-B', 
-            bounds=[(0.00000001, 0.5), (0.00000001, 0.5)]
+            # bounds=[(0.00000001, 0.5), (0.00000001, 0.5)]
+            bounds=[(0.00000001, 0.5), (0.2, 0.5)]
             )
 
         beta, gamma = optimal.x
