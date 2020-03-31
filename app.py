@@ -61,19 +61,8 @@ diff_melt = pd.melt(
     )
 
 # Model data
-if mod_loc == 'Montana':
-    N = 10000
-elif mod_loc == 'Missoula' or mod_loc == 'Gallatin':
-    N = 1000
-
-@st.cache
-def run_sir():
-    l = SirLearner(data, mod_loc, loss, 90, 0, 2, N)
-    beta, gamma, df_mod = l.train()
-    df_mod['Date'] = df_mod.index
-    return df_mod
-
-df_mod = run_sir()
+mod_fname = 'data/sir_results_{}.csv'.format(mod_loc)
+df_mod = pd.read_csv(mod_fname, parse_dates=['Date'])
 
 df_mod = pd.melt(
     df_mod, 
