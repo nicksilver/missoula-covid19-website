@@ -14,7 +14,13 @@ st.text('Last update: {}'.format(now))
 # Bring in data
 zoo_data = CovidTrends(county=30063).get_covid_data()
 gal_data = CovidTrends(county=30031).get_covid_data()
-data = pd.merge(zoo_data, gal_data['Gallatin'], how='inner', left_index=True, right_index=True)
+data = pd.merge(
+    zoo_data, 
+    gal_data['Gallatin'], 
+    how='inner', 
+    left_index=True, 
+    right_index=True
+    )
 
 # Get current numbers
 mt_cases = data['Montana'].iloc[-1]
@@ -164,7 +170,7 @@ st.markdown(
     """
     ### Model caveats
     
-    I am not an epidemiologist by training. Use these predictions at your own risk. 
+    I am not an epidemiologist by training. **Use these predictions at your own risk.** 
     
     This is a very (overly) simple [SIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology)
     and should be taken with a grain of salt. There are many complexities to the Covid-19
@@ -175,20 +181,21 @@ st.markdown(
 
     1. Are we "flattening the curve" for the state or counties of interest?
 
-    *Right now, it looks like we are. Keep in mind these results are sensitive to our testing biases (which we know are large)
-    and we may just be seeing noise in the signal. It is way to early to get overly confident.* 
+        *Right now, it looks like we are. Keep in mind these results are sensitive to our testing biases (which we know are large)
+        and we may just be seeing noise in the signal. It is way to early to get overly confident.* 
 
     2. Have the restrictions had an impact on the curve?
 
-    *Hard to say, but likely yes.* 
+        *Hard to say, but likely yes. Keep on social distancing yourselves, it might just be working!* 
+    
+    4. Do we want/need this for every county in the state?
 
-    3. Why is the curve flatter in Missoula than Gallatin?
-
-    *Gallatin is more of a winter travel destination that Missoula???*
+        *This app is built to potentially incorporate other counties, but I don't want to spend too much time developing something that is not useful
+        to Missoula and the rest of Montana. If the demand is high and people think it is helpful I will happily keep developing. Right
+        now I am gauging people's interest.*
 
     ### A word from the developer
-    There is a lot we can do with data. This will be an on going project...
-    so check back frequently for updates. I am taking requests for types of 
+    There is a lot we can do with data. This will be an on going project...I am taking requests for types of 
     data to visualize and models to build for the community. 
 
     Please feel free to reach out if there are ways I can help: 
