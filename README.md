@@ -47,3 +47,4 @@ The code was adapted (hijacked) from the great work of [Lewauathe](https://githu
 - Report and interpret peak timing, peak magnitude, beta, gamma, R_0 and HIT from the model results.
 - Add previous model runs
 - Add other (all) counties in Montana
+- Improve model: [Li et al. 2020](https://science.sciencemag.org/content/early/2020/03/24/science.abb3221/tab-pdf)
