@@ -55,7 +55,6 @@ st.markdown(
     """.format(
         mt_cases=mt_cases,
         zoo_cases=zoo_cases,
-        gal_cases=gal_cases
     )
 )
 st.text("")
