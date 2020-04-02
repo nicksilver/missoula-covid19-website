@@ -3,6 +3,7 @@ from PIL import Image
 import pandas as pd
 import altair as alt
 from datetime import datetime
+from datetime import timedelta
 from libs.obs_utils import *
 from libs.sir_utils import *
 
@@ -24,7 +25,7 @@ zoo_cases = int(full_data[full_data['location'] == 'Missoula'].iloc[-1]['cases']
 # Data location
 
 location = st.sidebar.multiselect(
-    label='Choose location to view data:',
+    label='Choose other counties to view data:',
     options=list(full_data['location'].unique()),
     default=['Montana', 'Missoula']
 )
@@ -37,6 +38,8 @@ loc_data = full_data.loc[full_data['location'].isin(location)][['location','case
 df_loc = loc_data.pivot(columns='location').ffill()['cases']
 diff = df_loc.diff()
 diff[diff < 0 ] = 0
+new_index = pd.date_range(df_loc.index.min(), datetime.today() + timedelta(days=1))
+diff = diff.reindex(new_index, method='ffill')
 diff['Date'] = diff.index
 diff_melt = pd.melt(
     diff, id_vars='Date', 
@@ -84,10 +87,13 @@ chart = (
 
 st.altair_chart(chart, use_container_width=True)
 
-# Plot epidemic curve
 chart_diff = (
     alt.Chart(diff_melt)
-    .mark_bar(width=20, opacity=0.4)
+    .mark_area(
+        line=True, 
+        opacity=0.4, 
+        interpolate='step-after'
+    )
     .encode(
         x='Date',
         y=alt.Y('New Cases', stack=False),
