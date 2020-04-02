@@ -106,6 +106,13 @@ st.altair_chart(chart_diff, use_container_width=True)
 # Bottom text
 st.markdown(
     """
+    ### What's new?
+    
+    I felt bad taking down the model so I went ahead and added the capability to view data for all Montana counties. 
+    You can mix and match what you would like to view. I recommend not adding too many all at once. Only Montana and  
+    Missoula, Lewis and Clark, Yellowstone, and Gallatin counties are fully up-to-date. The others are about a day or 
+    so behind because they are based on the New York Times data. 
+
     ### Where'd the model go?
 
     I am taking the county-level model down for now. I am concerned about putting predictions out into the world without 
