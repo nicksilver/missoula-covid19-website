@@ -9,7 +9,6 @@ from libs.sir_utils import *
 # Setup title and welcome
 now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 st.title('Missoula Covid-19 Dashboard')
-st.text('Last update: {}'.format(now))
 
 # Bring in data
 zoo_data = CovidTrends(county=30063).get_covid_data()
@@ -21,6 +20,8 @@ data = pd.merge(
     left_index=True, 
     right_index=True
     )
+update = data.index[-1].strftime("%m/%d/%Y")
+st.text('Last update: {}'.format(update))
 
 # Get current numbers
 mt_cases = data['Montana'].iloc[-1]
@@ -136,7 +137,7 @@ chart_diff = (
 st.altair_chart(chart_diff, use_container_width=True)
 
 # Plot model results
-df_mod_sir = df_mod[df_mod['SIR'] != 'Actual']
+df_mod_sir = df_mod[df_mod['SIR'] == 'Infectious']
 df_mod_act = df_mod[df_mod['SIR'] == 'Actual']
 df_mod_act['Points'] = np.repeat('Actual Confirmed', len(df_mod_act))
 chart_sir = (
@@ -216,5 +217,7 @@ st.text("")
 image = Image.open('./static/logo_final_text_long_trans.png')
 st.image(image, width=200, )
 
-#TODO: Add time to peak, beta, gamma, and HIT interprations for the model results
+#TODO: Only go out 60 days
+#TODO: Only show infectious curve???
+#TODO: Add time to peak, magnitude of peak, beta, gamma, and HIT interprations for the model results
 #TODO: Add uncertainty to parameters
