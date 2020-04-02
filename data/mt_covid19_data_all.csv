@@ -1,0 +1,653 @@
+date,county,cases,deaths,source
+2020-03-10,Missoula,0.0,0.0,msl
+2020-03-10,Gallatin,0.0,0.0,msl
+2020-03-10,Yellowstone,0.0,0.0,msl
+2020-03-10,Lewis and Clark,0.0,0.0,msl
+2020-03-11,Missoula,0.0,0.0,msl
+2020-03-11,Gallatin,0.0,0.0,msl
+2020-03-11,Yellowstone,0.0,0.0,msl
+2020-03-11,Lewis and Clark,0.0,0.0,msl
+2020-03-12,Missoula,0.0,0.0,msl
+2020-03-12,Gallatin,0.0,0.0,msl
+2020-03-12,Yellowstone,0.0,0.0,msl
+2020-03-12,Lewis and Clark,0.0,0.0,msl
+2020-03-13,Gallatin,1.0,0.0,nyt
+2020-03-13,Gallatin,1.0,0.0,nyt
+2020-03-13,Gallatin,1.0,0.0,nyt
+2020-03-13,Gallatin,1.0,0.0,nyt
+2020-03-13,Lewis and Clark,1.0,0.0,nyt
+2020-03-13,Lewis and Clark,1.0,0.0,nyt
+2020-03-13,Lewis and Clark,1.0,0.0,nyt
+2020-03-13,Lewis and Clark,1.0,0.0,nyt
+2020-03-13,Silver Bow,1.0,0.0,nyt
+2020-03-13,Silver Bow,1.0,0.0,nyt
+2020-03-13,Silver Bow,1.0,0.0,nyt
+2020-03-13,Silver Bow,1.0,0.0,nyt
+2020-03-13,Yellowstone,1.0,0.0,nyt
+2020-03-13,Yellowstone,1.0,0.0,nyt
+2020-03-13,Yellowstone,1.0,0.0,nyt
+2020-03-13,Yellowstone,1.0,0.0,nyt
+2020-03-14,Gallatin,1.0,0.0,nyt
+2020-03-14,Lewis and Clark,1.0,0.0,nyt
+2020-03-14,Missoula,2.0,0.0,nyt
+2020-03-14,Silver Bow,1.0,0.0,nyt
+2020-03-14,Yellowstone,1.0,0.0,nyt
+2020-03-15,Gallatin,1.0,0.0,nyt
+2020-03-15,Lewis and Clark,1.0,0.0,nyt
+2020-03-15,Missoula,2.0,0.0,nyt
+2020-03-15,Silver Bow,1.0,0.0,nyt
+2020-03-15,Yellowstone,1.0,0.0,nyt
+2020-03-16,Gallatin,1.0,0.0,nyt
+2020-03-16,Lewis and Clark,1.0,0.0,nyt
+2020-03-16,Missoula,2.0,0.0,nyt
+2020-03-16,Silver Bow,1.0,0.0,nyt
+2020-03-16,Yellowstone,3.0,0.0,nyt
+2020-03-17,Gallatin,1.0,0.0,nyt
+2020-03-17,Lewis and Clark,1.0,0.0,nyt
+2020-03-17,Missoula,2.0,0.0,nyt
+2020-03-17,Silver Bow,1.0,0.0,nyt
+2020-03-17,Yellowstone,3.0,0.0,nyt
+2020-03-18,Gallatin,2.0,0.0,nyt
+2020-03-18,Lewis and Clark,1.0,0.0,nyt
+2020-03-18,Missoula,3.0,0.0,nyt
+2020-03-18,Silver Bow,1.0,0.0,nyt
+2020-03-18,Yellowstone,5.0,0.0,nyt
+2020-03-19,Broadwater,1.0,0.0,nyt
+2020-03-19,Flathead,1.0,0.0,nyt
+2020-03-19,Gallatin,2.0,0.0,nyt
+2020-03-19,Lewis and Clark,3.0,0.0,nyt
+2020-03-19,Madison,1.0,0.0,nyt
+2020-03-19,Missoula,4.0,0.0,nyt
+2020-03-19,Roosevelt,1.0,0.0,nyt
+2020-03-19,Silver Bow,1.0,0.0,nyt
+2020-03-19,Yellowstone,5.0,0.0,nyt
+2020-03-20,Broadwater,1.0,0.0,nyt
+2020-03-20,Flathead,1.0,0.0,nyt
+2020-03-20,Gallatin,2.0,0.0,nyt
+2020-03-20,Lewis and Clark,3.0,0.0,nyt
+2020-03-20,Madison,1.0,0.0,nyt
+2020-03-20,Missoula,4.0,0.0,nyt
+2020-03-20,Roosevelt,1.0,0.0,nyt
+2020-03-20,Silver Bow,1.0,0.0,nyt
+2020-03-20,Yellowstone,5.0,0.0,nyt
+2020-03-21,Broadwater,1.0,0.0,nyt
+2020-03-21,Cascade,3.0,0.0,nyt
+2020-03-21,Flathead,2.0,0.0,nyt
+2020-03-21,Gallatin,7.0,0.0,nyt
+2020-03-21,Lewis and Clark,3.0,0.0,nyt
+2020-03-21,Madison,1.0,0.0,nyt
+2020-03-21,Missoula,4.0,0.0,nyt
+2020-03-21,Ravalli,1.0,0.0,nyt
+2020-03-21,Roosevelt,1.0,0.0,nyt
+2020-03-21,Silver Bow,1.0,0.0,nyt
+2020-03-21,Yellowstone,5.0,0.0,nyt
+2020-03-22,Broadwater,1.0,0.0,nyt
+2020-03-22,Cascade,3.0,0.0,nyt
+2020-03-22,Flathead,2.0,0.0,nyt
+2020-03-22,Gallatin,10.0,0.0,nyt
+2020-03-22,Lewis and Clark,3.0,0.0,nyt
+2020-03-22,Madison,1.0,0.0,nyt
+2020-03-22,Missoula,4.0,0.0,nyt
+2020-03-22,Ravalli,1.0,0.0,nyt
+2020-03-22,Roosevelt,1.0,0.0,nyt
+2020-03-22,Silver Bow,2.0,0.0,nyt
+2020-03-22,Yellowstone,6.0,0.0,nyt
+2020-03-23,Broadwater,1.0,0.0,nyt
+2020-03-23,Cascade,3.0,0.0,nyt
+2020-03-23,Flathead,4.0,0.0,nyt
+2020-03-23,Gallatin,16.0,0.0,nyt
+2020-03-23,Lewis and Clark,3.0,0.0,nyt
+2020-03-23,Madison,1.0,0.0,nyt
+2020-03-23,Missoula,6.0,0.0,nyt
+2020-03-23,Ravalli,1.0,0.0,nyt
+2020-03-23,Roosevelt,1.0,0.0,nyt
+2020-03-23,Silver Bow,2.0,0.0,nyt
+2020-03-23,Yellowstone,7.0,0.0,nyt
+2020-03-24,Broadwater,1.0,0.0,nyt
+2020-03-24,Broadwater,1.0,0.0,nyt
+2020-03-24,Broadwater,1.0,0.0,nyt
+2020-03-24,Broadwater,1.0,0.0,nyt
+2020-03-24,Cascade,3.0,0.0,nyt
+2020-03-24,Cascade,3.0,0.0,nyt
+2020-03-24,Cascade,3.0,0.0,nyt
+2020-03-24,Cascade,3.0,0.0,nyt
+2020-03-24,Flathead,4.0,0.0,nyt
+2020-03-24,Flathead,4.0,0.0,nyt
+2020-03-24,Flathead,4.0,0.0,nyt
+2020-03-24,Flathead,4.0,0.0,nyt
+2020-03-24,Gallatin,19.0,0.0,nyt
+2020-03-24,Gallatin,19.0,0.0,nyt
+2020-03-24,Gallatin,19.0,0.0,nyt
+2020-03-24,Gallatin,19.0,0.0,nyt
+2020-03-24,Jefferson,1.0,0.0,nyt
+2020-03-24,Jefferson,1.0,0.0,nyt
+2020-03-24,Jefferson,1.0,0.0,nyt
+2020-03-24,Jefferson,1.0,0.0,nyt
+2020-03-24,Lewis and Clark,3.0,0.0,nyt
+2020-03-24,Lewis and Clark,3.0,0.0,nyt
+2020-03-24,Lewis and Clark,3.0,0.0,nyt
+2020-03-24,Lewis and Clark,3.0,0.0,nyt
+2020-03-24,Madison,1.0,0.0,nyt
+2020-03-24,Madison,1.0,0.0,nyt
+2020-03-24,Madison,1.0,0.0,nyt
+2020-03-24,Madison,1.0,0.0,nyt
+2020-03-24,Missoula,6.0,0.0,nyt
+2020-03-24,Missoula,6.0,0.0,nyt
+2020-03-24,Missoula,6.0,0.0,nyt
+2020-03-24,Missoula,6.0,0.0,nyt
+2020-03-24,Ravalli,1.0,0.0,nyt
+2020-03-24,Ravalli,1.0,0.0,nyt
+2020-03-24,Ravalli,1.0,0.0,nyt
+2020-03-24,Ravalli,1.0,0.0,nyt
+2020-03-24,Roosevelt,1.0,0.0,nyt
+2020-03-24,Roosevelt,1.0,0.0,nyt
+2020-03-24,Roosevelt,1.0,0.0,nyt
+2020-03-24,Roosevelt,1.0,0.0,nyt
+2020-03-24,Silver Bow,3.0,0.0,nyt
+2020-03-24,Silver Bow,3.0,0.0,nyt
+2020-03-24,Silver Bow,3.0,0.0,nyt
+2020-03-24,Silver Bow,3.0,0.0,nyt
+2020-03-24,Yellowstone,8.0,0.0,nyt
+2020-03-24,Yellowstone,8.0,0.0,nyt
+2020-03-24,Yellowstone,8.0,0.0,nyt
+2020-03-24,Yellowstone,8.0,0.0,nyt
+2020-03-25,Broadwater,2.0,0.0,nyt
+2020-03-25,Broadwater,2.0,0.0,nyt
+2020-03-25,Broadwater,2.0,0.0,nyt
+2020-03-25,Broadwater,2.0,0.0,nyt
+2020-03-25,Cascade,3.0,0.0,nyt
+2020-03-25,Cascade,3.0,0.0,nyt
+2020-03-25,Cascade,3.0,0.0,nyt
+2020-03-25,Cascade,3.0,0.0,nyt
+2020-03-25,Flathead,5.0,0.0,nyt
+2020-03-25,Flathead,5.0,0.0,nyt
+2020-03-25,Flathead,5.0,0.0,nyt
+2020-03-25,Flathead,5.0,0.0,nyt
+2020-03-25,Gallatin,24.0,0.0,nyt
+2020-03-25,Gallatin,24.0,0.0,nyt
+2020-03-25,Gallatin,24.0,0.0,nyt
+2020-03-25,Gallatin,24.0,0.0,nyt
+2020-03-25,Hill,1.0,0.0,nyt
+2020-03-25,Hill,1.0,0.0,nyt
+2020-03-25,Hill,1.0,0.0,nyt
+2020-03-25,Hill,1.0,0.0,nyt
+2020-03-25,Jefferson,1.0,0.0,nyt
+2020-03-25,Jefferson,1.0,0.0,nyt
+2020-03-25,Jefferson,1.0,0.0,nyt
+2020-03-25,Jefferson,1.0,0.0,nyt
+2020-03-25,Lewis and Clark,3.0,0.0,nyt
+2020-03-25,Lewis and Clark,3.0,0.0,nyt
+2020-03-25,Lewis and Clark,3.0,0.0,nyt
+2020-03-25,Lewis and Clark,3.0,0.0,nyt
+2020-03-25,Madison,2.0,0.0,nyt
+2020-03-25,Madison,2.0,0.0,nyt
+2020-03-25,Madison,2.0,0.0,nyt
+2020-03-25,Madison,2.0,0.0,nyt
+2020-03-25,Missoula,6.0,0.0,nyt
+2020-03-25,Missoula,6.0,0.0,nyt
+2020-03-25,Missoula,6.0,0.0,nyt
+2020-03-25,Missoula,6.0,0.0,nyt
+2020-03-25,Ravalli,1.0,0.0,nyt
+2020-03-25,Ravalli,1.0,0.0,nyt
+2020-03-25,Ravalli,1.0,0.0,nyt
+2020-03-25,Ravalli,1.0,0.0,nyt
+2020-03-25,Roosevelt,1.0,0.0,nyt
+2020-03-25,Roosevelt,1.0,0.0,nyt
+2020-03-25,Roosevelt,1.0,0.0,nyt
+2020-03-25,Roosevelt,1.0,0.0,nyt
+2020-03-25,Silver Bow,4.0,0.0,nyt
+2020-03-25,Silver Bow,4.0,0.0,nyt
+2020-03-25,Silver Bow,4.0,0.0,nyt
+2020-03-25,Silver Bow,4.0,0.0,nyt
+2020-03-25,Yellowstone,12.0,0.0,nyt
+2020-03-25,Yellowstone,12.0,0.0,nyt
+2020-03-25,Yellowstone,12.0,0.0,nyt
+2020-03-25,Yellowstone,12.0,0.0,nyt
+2020-03-26,Broadwater,2.0,0.0,nyt
+2020-03-26,Broadwater,2.0,0.0,nyt
+2020-03-26,Broadwater,2.0,0.0,nyt
+2020-03-26,Broadwater,2.0,0.0,nyt
+2020-03-26,Cascade,5.0,0.0,nyt
+2020-03-26,Cascade,5.0,0.0,nyt
+2020-03-26,Cascade,5.0,0.0,nyt
+2020-03-26,Cascade,5.0,0.0,nyt
+2020-03-26,Flathead,5.0,0.0,nyt
+2020-03-26,Flathead,5.0,0.0,nyt
+2020-03-26,Flathead,5.0,0.0,nyt
+2020-03-26,Flathead,5.0,0.0,nyt
+2020-03-26,Gallatin,38.0,0.0,nyt
+2020-03-26,Gallatin,38.0,0.0,nyt
+2020-03-26,Gallatin,38.0,0.0,nyt
+2020-03-26,Gallatin,38.0,0.0,nyt
+2020-03-26,Hill,1.0,0.0,nyt
+2020-03-26,Hill,1.0,0.0,nyt
+2020-03-26,Hill,1.0,0.0,nyt
+2020-03-26,Hill,1.0,0.0,nyt
+2020-03-26,Jefferson,1.0,0.0,nyt
+2020-03-26,Jefferson,1.0,0.0,nyt
+2020-03-26,Jefferson,1.0,0.0,nyt
+2020-03-26,Jefferson,1.0,0.0,nyt
+2020-03-26,Lewis and Clark,5.0,0.0,nyt
+2020-03-26,Lewis and Clark,5.0,0.0,nyt
+2020-03-26,Lewis and Clark,5.0,0.0,nyt
+2020-03-26,Lewis and Clark,5.0,0.0,nyt
+2020-03-26,Lincoln,1.0,0.0,nyt
+2020-03-26,Lincoln,1.0,0.0,nyt
+2020-03-26,Lincoln,1.0,0.0,nyt
+2020-03-26,Lincoln,1.0,0.0,nyt
+2020-03-26,Madison,2.0,0.0,nyt
+2020-03-26,Madison,2.0,0.0,nyt
+2020-03-26,Madison,2.0,0.0,nyt
+2020-03-26,Madison,2.0,0.0,nyt
+2020-03-26,Meagher,1.0,0.0,nyt
+2020-03-26,Meagher,1.0,0.0,nyt
+2020-03-26,Meagher,1.0,0.0,nyt
+2020-03-26,Meagher,1.0,0.0,nyt
+2020-03-26,Missoula,7.0,0.0,nyt
+2020-03-26,Missoula,7.0,0.0,nyt
+2020-03-26,Missoula,7.0,0.0,nyt
+2020-03-26,Missoula,7.0,0.0,nyt
+2020-03-26,Ravalli,1.0,0.0,nyt
+2020-03-26,Ravalli,1.0,0.0,nyt
+2020-03-26,Ravalli,1.0,0.0,nyt
+2020-03-26,Ravalli,1.0,0.0,nyt
+2020-03-26,Roosevelt,1.0,0.0,nyt
+2020-03-26,Roosevelt,1.0,0.0,nyt
+2020-03-26,Roosevelt,1.0,0.0,nyt
+2020-03-26,Roosevelt,1.0,0.0,nyt
+2020-03-26,Silver Bow,5.0,0.0,nyt
+2020-03-26,Silver Bow,5.0,0.0,nyt
+2020-03-26,Silver Bow,5.0,0.0,nyt
+2020-03-26,Silver Bow,5.0,0.0,nyt
+2020-03-26,Toole,1.0,0.0,nyt
+2020-03-26,Toole,1.0,0.0,nyt
+2020-03-26,Toole,1.0,0.0,nyt
+2020-03-26,Toole,1.0,0.0,nyt
+2020-03-26,Yellowstone,14.0,0.0,nyt
+2020-03-26,Yellowstone,14.0,0.0,nyt
+2020-03-26,Yellowstone,14.0,0.0,nyt
+2020-03-26,Yellowstone,14.0,0.0,nyt
+2020-03-27,Broadwater,2.0,0.0,nyt
+2020-03-27,Broadwater,2.0,0.0,nyt
+2020-03-27,Broadwater,2.0,0.0,nyt
+2020-03-27,Broadwater,2.0,0.0,nyt
+2020-03-27,Cascade,7.0,0.0,nyt
+2020-03-27,Cascade,7.0,0.0,nyt
+2020-03-27,Cascade,7.0,0.0,nyt
+2020-03-27,Cascade,7.0,0.0,nyt
+2020-03-27,Flathead,6.0,0.0,nyt
+2020-03-27,Flathead,6.0,0.0,nyt
+2020-03-27,Flathead,6.0,0.0,nyt
+2020-03-27,Flathead,6.0,0.0,nyt
+2020-03-27,Gallatin,42.0,0.0,nyt
+2020-03-27,Gallatin,42.0,0.0,nyt
+2020-03-27,Gallatin,42.0,0.0,nyt
+2020-03-27,Gallatin,42.0,0.0,nyt
+2020-03-27,Hill,1.0,0.0,nyt
+2020-03-27,Hill,1.0,0.0,nyt
+2020-03-27,Hill,1.0,0.0,nyt
+2020-03-27,Hill,1.0,0.0,nyt
+2020-03-27,Jefferson,2.0,0.0,nyt
+2020-03-27,Jefferson,2.0,0.0,nyt
+2020-03-27,Jefferson,2.0,0.0,nyt
+2020-03-27,Jefferson,2.0,0.0,nyt
+2020-03-27,Lake,1.0,0.0,nyt
+2020-03-27,Lake,1.0,0.0,nyt
+2020-03-27,Lake,1.0,0.0,nyt
+2020-03-27,Lake,1.0,0.0,nyt
+2020-03-27,Lewis and Clark,7.0,0.0,nyt
+2020-03-27,Lewis and Clark,7.0,0.0,nyt
+2020-03-27,Lewis and Clark,7.0,0.0,nyt
+2020-03-27,Lewis and Clark,7.0,0.0,nyt
+2020-03-27,Lincoln,3.0,1.0,nyt
+2020-03-27,Lincoln,3.0,1.0,nyt
+2020-03-27,Lincoln,3.0,1.0,nyt
+2020-03-27,Lincoln,3.0,1.0,nyt
+2020-03-27,Madison,3.0,0.0,nyt
+2020-03-27,Madison,3.0,0.0,nyt
+2020-03-27,Madison,3.0,0.0,nyt
+2020-03-27,Madison,3.0,0.0,nyt
+2020-03-27,Meagher,1.0,0.0,nyt
+2020-03-27,Meagher,1.0,0.0,nyt
+2020-03-27,Meagher,1.0,0.0,nyt
+2020-03-27,Meagher,1.0,0.0,nyt
+2020-03-27,Missoula,8.0,0.0,nyt
+2020-03-27,Missoula,8.0,0.0,nyt
+2020-03-27,Missoula,8.0,0.0,nyt
+2020-03-27,Missoula,8.0,0.0,nyt
+2020-03-27,Park,1.0,0.0,nyt
+2020-03-27,Park,1.0,0.0,nyt
+2020-03-27,Park,1.0,0.0,nyt
+2020-03-27,Park,1.0,0.0,nyt
+2020-03-27,Ravalli,1.0,0.0,nyt
+2020-03-27,Ravalli,1.0,0.0,nyt
+2020-03-27,Ravalli,1.0,0.0,nyt
+2020-03-27,Ravalli,1.0,0.0,nyt
+2020-03-27,Roosevelt,1.0,0.0,nyt
+2020-03-27,Roosevelt,1.0,0.0,nyt
+2020-03-27,Roosevelt,1.0,0.0,nyt
+2020-03-27,Roosevelt,1.0,0.0,nyt
+2020-03-27,Silver Bow,7.0,0.0,nyt
+2020-03-27,Silver Bow,7.0,0.0,nyt
+2020-03-27,Silver Bow,7.0,0.0,nyt
+2020-03-27,Silver Bow,7.0,0.0,nyt
+2020-03-27,Toole,5.0,0.0,nyt
+2020-03-27,Toole,5.0,0.0,nyt
+2020-03-27,Toole,5.0,0.0,nyt
+2020-03-27,Toole,5.0,0.0,nyt
+2020-03-27,Yellowstone,23.0,0.0,nyt
+2020-03-27,Yellowstone,23.0,0.0,nyt
+2020-03-27,Yellowstone,23.0,0.0,nyt
+2020-03-27,Yellowstone,23.0,0.0,nyt
+2020-03-28,Broadwater,3.0,0.0,nyt
+2020-03-28,Broadwater,3.0,0.0,nyt
+2020-03-28,Broadwater,3.0,0.0,nyt
+2020-03-28,Broadwater,3.0,0.0,nyt
+2020-03-28,Cascade,7.0,0.0,nyt
+2020-03-28,Cascade,7.0,0.0,nyt
+2020-03-28,Cascade,7.0,0.0,nyt
+2020-03-28,Cascade,7.0,0.0,nyt
+2020-03-28,Flathead,6.0,0.0,nyt
+2020-03-28,Flathead,6.0,0.0,nyt
+2020-03-28,Flathead,6.0,0.0,nyt
+2020-03-28,Flathead,6.0,0.0,nyt
+2020-03-28,Gallatin,57.0,0.0,nyt
+2020-03-28,Gallatin,57.0,0.0,nyt
+2020-03-28,Gallatin,57.0,0.0,nyt
+2020-03-28,Gallatin,57.0,0.0,nyt
+2020-03-28,Hill,1.0,0.0,nyt
+2020-03-28,Hill,1.0,0.0,nyt
+2020-03-28,Hill,1.0,0.0,nyt
+2020-03-28,Hill,1.0,0.0,nyt
+2020-03-28,Jefferson,2.0,0.0,nyt
+2020-03-28,Jefferson,2.0,0.0,nyt
+2020-03-28,Jefferson,2.0,0.0,nyt
+2020-03-28,Jefferson,2.0,0.0,nyt
+2020-03-28,Lake,2.0,0.0,nyt
+2020-03-28,Lake,2.0,0.0,nyt
+2020-03-28,Lake,2.0,0.0,nyt
+2020-03-28,Lake,2.0,0.0,nyt
+2020-03-28,Lewis and Clark,10.0,0.0,nyt
+2020-03-28,Lewis and Clark,10.0,0.0,nyt
+2020-03-28,Lewis and Clark,10.0,0.0,nyt
+2020-03-28,Lewis and Clark,10.0,0.0,nyt
+2020-03-28,Lincoln,3.0,1.0,nyt
+2020-03-28,Lincoln,3.0,1.0,nyt
+2020-03-28,Lincoln,3.0,1.0,nyt
+2020-03-28,Lincoln,3.0,1.0,nyt
+2020-03-28,Madison,3.0,0.0,nyt
+2020-03-28,Madison,3.0,0.0,nyt
+2020-03-28,Madison,3.0,0.0,nyt
+2020-03-28,Madison,3.0,0.0,nyt
+2020-03-28,Meagher,1.0,0.0,nyt
+2020-03-28,Meagher,1.0,0.0,nyt
+2020-03-28,Meagher,1.0,0.0,nyt
+2020-03-28,Meagher,1.0,0.0,nyt
+2020-03-28,Missoula,9.0,0.0,nyt
+2020-03-28,Missoula,9.0,0.0,nyt
+2020-03-28,Missoula,9.0,0.0,nyt
+2020-03-28,Missoula,9.0,0.0,nyt
+2020-03-28,Park,2.0,0.0,nyt
+2020-03-28,Park,2.0,0.0,nyt
+2020-03-28,Park,2.0,0.0,nyt
+2020-03-28,Park,2.0,0.0,nyt
+2020-03-28,Ravalli,1.0,0.0,nyt
+2020-03-28,Ravalli,1.0,0.0,nyt
+2020-03-28,Ravalli,1.0,0.0,nyt
+2020-03-28,Ravalli,1.0,0.0,nyt
+2020-03-28,Roosevelt,1.0,0.0,nyt
+2020-03-28,Roosevelt,1.0,0.0,nyt
+2020-03-28,Roosevelt,1.0,0.0,nyt
+2020-03-28,Roosevelt,1.0,0.0,nyt
+2020-03-28,Silver Bow,8.0,0.0,nyt
+2020-03-28,Silver Bow,8.0,0.0,nyt
+2020-03-28,Silver Bow,8.0,0.0,nyt
+2020-03-28,Silver Bow,8.0,0.0,nyt
+2020-03-28,Toole,5.0,0.0,nyt
+2020-03-28,Toole,5.0,0.0,nyt
+2020-03-28,Toole,5.0,0.0,nyt
+2020-03-28,Toole,5.0,0.0,nyt
+2020-03-28,Yellowstone,26.0,0.0,nyt
+2020-03-28,Yellowstone,26.0,0.0,nyt
+2020-03-28,Yellowstone,26.0,0.0,nyt
+2020-03-28,Yellowstone,26.0,0.0,nyt
+2020-03-29,Broadwater,3.0,0.0,nyt
+2020-03-29,Broadwater,3.0,0.0,nyt
+2020-03-29,Broadwater,3.0,0.0,nyt
+2020-03-29,Broadwater,3.0,0.0,nyt
+2020-03-29,Cascade,7.0,0.0,nyt
+2020-03-29,Cascade,7.0,0.0,nyt
+2020-03-29,Cascade,7.0,0.0,nyt
+2020-03-29,Cascade,7.0,0.0,nyt
+2020-03-29,Deer Lodge,1.0,0.0,nyt
+2020-03-29,Deer Lodge,1.0,0.0,nyt
+2020-03-29,Deer Lodge,1.0,0.0,nyt
+2020-03-29,Deer Lodge,1.0,0.0,nyt
+2020-03-29,Flathead,8.0,0.0,nyt
+2020-03-29,Flathead,8.0,0.0,nyt
+2020-03-29,Flathead,8.0,0.0,nyt
+2020-03-29,Flathead,8.0,0.0,nyt
+2020-03-29,Gallatin,62.0,0.0,nyt
+2020-03-29,Gallatin,62.0,0.0,nyt
+2020-03-29,Gallatin,62.0,0.0,nyt
+2020-03-29,Gallatin,62.0,0.0,nyt
+2020-03-29,Hill,1.0,0.0,nyt
+2020-03-29,Hill,1.0,0.0,nyt
+2020-03-29,Hill,1.0,0.0,nyt
+2020-03-29,Hill,1.0,0.0,nyt
+2020-03-29,Jefferson,2.0,0.0,nyt
+2020-03-29,Jefferson,2.0,0.0,nyt
+2020-03-29,Jefferson,2.0,0.0,nyt
+2020-03-29,Jefferson,2.0,0.0,nyt
+2020-03-29,Lake,3.0,0.0,nyt
+2020-03-29,Lake,3.0,0.0,nyt
+2020-03-29,Lake,3.0,0.0,nyt
+2020-03-29,Lake,3.0,0.0,nyt
+2020-03-29,Lewis and Clark,10.0,0.0,nyt
+2020-03-29,Lewis and Clark,10.0,0.0,nyt
+2020-03-29,Lewis and Clark,10.0,0.0,nyt
+2020-03-29,Lewis and Clark,10.0,0.0,nyt
+2020-03-29,Lincoln,4.0,1.0,nyt
+2020-03-29,Lincoln,4.0,1.0,nyt
+2020-03-29,Lincoln,4.0,1.0,nyt
+2020-03-29,Lincoln,4.0,1.0,nyt
+2020-03-29,Madison,4.0,0.0,nyt
+2020-03-29,Madison,4.0,0.0,nyt
+2020-03-29,Madison,4.0,0.0,nyt
+2020-03-29,Madison,4.0,0.0,nyt
+2020-03-29,Meagher,1.0,0.0,nyt
+2020-03-29,Meagher,1.0,0.0,nyt
+2020-03-29,Meagher,1.0,0.0,nyt
+2020-03-29,Meagher,1.0,0.0,nyt
+2020-03-29,Missoula,11.0,0.0,nyt
+2020-03-29,Missoula,11.0,0.0,nyt
+2020-03-29,Missoula,11.0,0.0,nyt
+2020-03-29,Missoula,11.0,0.0,nyt
+2020-03-29,Park,2.0,0.0,nyt
+2020-03-29,Park,2.0,0.0,nyt
+2020-03-29,Park,2.0,0.0,nyt
+2020-03-29,Park,2.0,0.0,nyt
+2020-03-29,Ravalli,1.0,0.0,nyt
+2020-03-29,Ravalli,1.0,0.0,nyt
+2020-03-29,Ravalli,1.0,0.0,nyt
+2020-03-29,Ravalli,1.0,0.0,nyt
+2020-03-29,Roosevelt,1.0,0.0,nyt
+2020-03-29,Roosevelt,1.0,0.0,nyt
+2020-03-29,Roosevelt,1.0,0.0,nyt
+2020-03-29,Roosevelt,1.0,0.0,nyt
+2020-03-29,Silver Bow,9.0,0.0,nyt
+2020-03-29,Silver Bow,9.0,0.0,nyt
+2020-03-29,Silver Bow,9.0,0.0,nyt
+2020-03-29,Silver Bow,9.0,0.0,nyt
+2020-03-29,Toole,5.0,0.0,nyt
+2020-03-29,Toole,5.0,0.0,nyt
+2020-03-29,Toole,5.0,0.0,nyt
+2020-03-29,Toole,5.0,0.0,nyt
+2020-03-29,Yellowstone,26.0,0.0,nyt
+2020-03-29,Yellowstone,26.0,0.0,nyt
+2020-03-29,Yellowstone,26.0,0.0,nyt
+2020-03-29,Yellowstone,26.0,0.0,nyt
+2020-03-30,Broadwater,3.0,0.0,nyt
+2020-03-30,Broadwater,3.0,0.0,nyt
+2020-03-30,Broadwater,3.0,0.0,nyt
+2020-03-30,Broadwater,3.0,0.0,nyt
+2020-03-30,Cascade,7.0,0.0,nyt
+2020-03-30,Cascade,7.0,0.0,nyt
+2020-03-30,Cascade,7.0,0.0,nyt
+2020-03-30,Cascade,7.0,0.0,nyt
+2020-03-30,Deer Lodge,3.0,0.0,nyt
+2020-03-30,Deer Lodge,3.0,0.0,nyt
+2020-03-30,Deer Lodge,3.0,0.0,nyt
+2020-03-30,Deer Lodge,3.0,0.0,nyt
+2020-03-30,Flathead,9.0,0.0,nyt
+2020-03-30,Flathead,9.0,0.0,nyt
+2020-03-30,Flathead,9.0,0.0,nyt
+2020-03-30,Flathead,9.0,0.0,nyt
+2020-03-30,Gallatin,69.0,0.0,nyt
+2020-03-30,Gallatin,69.0,0.0,nyt
+2020-03-30,Gallatin,69.0,0.0,nyt
+2020-03-30,Gallatin,69.0,0.0,nyt
+2020-03-30,Hill,1.0,0.0,nyt
+2020-03-30,Hill,1.0,0.0,nyt
+2020-03-30,Hill,1.0,0.0,nyt
+2020-03-30,Hill,1.0,0.0,nyt
+2020-03-30,Jefferson,2.0,0.0,nyt
+2020-03-30,Jefferson,2.0,0.0,nyt
+2020-03-30,Jefferson,2.0,0.0,nyt
+2020-03-30,Jefferson,2.0,0.0,nyt
+2020-03-30,Lake,3.0,0.0,nyt
+2020-03-30,Lake,3.0,0.0,nyt
+2020-03-30,Lake,3.0,0.0,nyt
+2020-03-30,Lake,3.0,0.0,nyt
+2020-03-30,Lewis and Clark,11.0,0.0,nyt
+2020-03-30,Lewis and Clark,11.0,0.0,nyt
+2020-03-30,Lewis and Clark,11.0,0.0,nyt
+2020-03-30,Lewis and Clark,11.0,0.0,nyt
+2020-03-30,Lincoln,4.0,1.0,nyt
+2020-03-30,Lincoln,4.0,1.0,nyt
+2020-03-30,Lincoln,4.0,1.0,nyt
+2020-03-30,Lincoln,4.0,1.0,nyt
+2020-03-30,Madison,4.0,1.0,nyt
+2020-03-30,Madison,4.0,1.0,nyt
+2020-03-30,Madison,4.0,1.0,nyt
+2020-03-30,Madison,4.0,1.0,nyt
+2020-03-30,Meagher,1.0,0.0,nyt
+2020-03-30,Meagher,1.0,0.0,nyt
+2020-03-30,Meagher,1.0,0.0,nyt
+2020-03-30,Meagher,1.0,0.0,nyt
+2020-03-30,Missoula,12.0,0.0,nyt
+2020-03-30,Missoula,12.0,0.0,nyt
+2020-03-30,Missoula,12.0,0.0,nyt
+2020-03-30,Missoula,12.0,0.0,nyt
+2020-03-30,Park,3.0,0.0,nyt
+2020-03-30,Park,3.0,0.0,nyt
+2020-03-30,Park,3.0,0.0,nyt
+2020-03-30,Park,3.0,0.0,nyt
+2020-03-30,Ravalli,1.0,0.0,nyt
+2020-03-30,Ravalli,1.0,0.0,nyt
+2020-03-30,Ravalli,1.0,0.0,nyt
+2020-03-30,Ravalli,1.0,0.0,nyt
+2020-03-30,Roosevelt,1.0,0.0,nyt
+2020-03-30,Roosevelt,1.0,0.0,nyt
+2020-03-30,Roosevelt,1.0,0.0,nyt
+2020-03-30,Roosevelt,1.0,0.0,nyt
+2020-03-30,Silver Bow,9.0,0.0,nyt
+2020-03-30,Silver Bow,9.0,0.0,nyt
+2020-03-30,Silver Bow,9.0,0.0,nyt
+2020-03-30,Silver Bow,9.0,0.0,nyt
+2020-03-30,Toole,6.0,2.0,nyt
+2020-03-30,Toole,6.0,2.0,nyt
+2020-03-30,Toole,6.0,2.0,nyt
+2020-03-30,Toole,6.0,2.0,nyt
+2020-03-30,Yellowstone,28.0,0.0,nyt
+2020-03-30,Yellowstone,28.0,0.0,nyt
+2020-03-30,Yellowstone,28.0,0.0,nyt
+2020-03-30,Yellowstone,28.0,0.0,nyt
+2020-03-31,Broadwater,3.0,0.0,nyt
+2020-03-31,Broadwater,3.0,0.0,nyt
+2020-03-31,Broadwater,3.0,0.0,nyt
+2020-03-31,Broadwater,3.0,0.0,nyt
+2020-03-31,Cascade,9.0,0.0,nyt
+2020-03-31,Cascade,9.0,0.0,nyt
+2020-03-31,Cascade,9.0,0.0,nyt
+2020-03-31,Cascade,9.0,0.0,nyt
+2020-03-31,Deer Lodge,3.0,0.0,nyt
+2020-03-31,Deer Lodge,3.0,0.0,nyt
+2020-03-31,Deer Lodge,3.0,0.0,nyt
+2020-03-31,Deer Lodge,3.0,0.0,nyt
+2020-03-31,Flathead,11.0,0.0,nyt
+2020-03-31,Flathead,11.0,0.0,nyt
+2020-03-31,Flathead,11.0,0.0,nyt
+2020-03-31,Flathead,11.0,0.0,nyt
+2020-03-31,Gallatin,74.0,0.0,nyt
+2020-03-31,Gallatin,74.0,0.0,nyt
+2020-03-31,Gallatin,74.0,0.0,nyt
+2020-03-31,Gallatin,74.0,0.0,nyt
+2020-03-31,Hill,1.0,0.0,nyt
+2020-03-31,Hill,1.0,0.0,nyt
+2020-03-31,Hill,1.0,0.0,nyt
+2020-03-31,Hill,1.0,0.0,nyt
+2020-03-31,Jefferson,2.0,0.0,nyt
+2020-03-31,Jefferson,2.0,0.0,nyt
+2020-03-31,Jefferson,2.0,0.0,nyt
+2020-03-31,Jefferson,2.0,0.0,nyt
+2020-03-31,Lake,3.0,0.0,nyt
+2020-03-31,Lake,3.0,0.0,nyt
+2020-03-31,Lake,3.0,0.0,nyt
+2020-03-31,Lake,3.0,0.0,nyt
+2020-03-31,Lewis and Clark,12.0,0.0,nyt
+2020-03-31,Lewis and Clark,12.0,0.0,nyt
+2020-03-31,Lewis and Clark,12.0,0.0,nyt
+2020-03-31,Lewis and Clark,12.0,0.0,nyt
+2020-03-31,Liberty,1.0,0.0,nyt
+2020-03-31,Liberty,1.0,0.0,nyt
+2020-03-31,Liberty,1.0,0.0,nyt
+2020-03-31,Liberty,1.0,0.0,nyt
+2020-03-31,Lincoln,5.0,1.0,nyt
+2020-03-31,Lincoln,5.0,1.0,nyt
+2020-03-31,Lincoln,5.0,1.0,nyt
+2020-03-31,Lincoln,5.0,1.0,nyt
+2020-03-31,Madison,6.0,1.0,nyt
+2020-03-31,Madison,6.0,1.0,nyt
+2020-03-31,Madison,6.0,1.0,nyt
+2020-03-31,Madison,6.0,1.0,nyt
+2020-03-31,Meagher,1.0,0.0,nyt
+2020-03-31,Meagher,1.0,0.0,nyt
+2020-03-31,Meagher,1.0,0.0,nyt
+2020-03-31,Meagher,1.0,0.0,nyt
+2020-03-31,Missoula,14.0,0.0,nyt
+2020-03-31,Missoula,14.0,0.0,nyt
+2020-03-31,Missoula,14.0,0.0,nyt
+2020-03-31,Missoula,14.0,0.0,nyt
+2020-03-31,Musselshell,1.0,0.0,nyt
+2020-03-31,Musselshell,1.0,0.0,nyt
+2020-03-31,Musselshell,1.0,0.0,nyt
+2020-03-31,Musselshell,1.0,0.0,nyt
+2020-03-31,Park,3.0,0.0,nyt
+2020-03-31,Park,3.0,0.0,nyt
+2020-03-31,Park,3.0,0.0,nyt
+2020-03-31,Park,3.0,0.0,nyt
+2020-03-31,Ravalli,1.0,0.0,nyt
+2020-03-31,Ravalli,1.0,0.0,nyt
+2020-03-31,Ravalli,1.0,0.0,nyt
+2020-03-31,Ravalli,1.0,0.0,nyt
+2020-03-31,Roosevelt,1.0,0.0,nyt
+2020-03-31,Roosevelt,1.0,0.0,nyt
+2020-03-31,Roosevelt,1.0,0.0,nyt
+2020-03-31,Roosevelt,1.0,0.0,nyt
+2020-03-31,Silver Bow,10.0,0.0,nyt
+2020-03-31,Silver Bow,10.0,0.0,nyt
+2020-03-31,Silver Bow,10.0,0.0,nyt
+2020-03-31,Silver Bow,10.0,0.0,nyt
+2020-03-31,Toole,6.0,2.0,nyt
+2020-03-31,Toole,6.0,2.0,nyt
+2020-03-31,Toole,6.0,2.0,nyt
+2020-03-31,Toole,6.0,2.0,nyt
+2020-03-31,Yellowstone,31.0,0.0,nyt
+2020-03-31,Yellowstone,31.0,0.0,nyt
+2020-03-31,Yellowstone,31.0,0.0,nyt
+2020-03-31,Yellowstone,31.0,0.0,nyt
+2020-04-01,Missoula,15.0,0.0,msl
+2020-04-01,Gallatin,79.0,0.0,msl
+2020-04-01,Yellowstone,32.0,0.0,msl
+2020-04-01,Lewis and Clark,13.0,0.0,msl
