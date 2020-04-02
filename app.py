@@ -7,7 +7,6 @@ from libs.obs_utils import *
 from libs.sir_utils import *
 
 # Setup title and welcome
-now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 st.title('Missoula Covid-19 Dashboard')
 
 # Bring in data
