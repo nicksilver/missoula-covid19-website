@@ -14,6 +14,7 @@ gal_data = CovidTrends(county=30031).get_covid_data()
 data = pd.merge(zoo_data, gal_data['Gallatin'], how='inner', left_index=True, right_index=True)
 
 # Move existing model result data
+<<<<<<< HEAD
 date = data.index[-1].strftime("%Y%m%d")
 old_files = glob.glob('data/sir_results*.csv')
 for f in old_files:
@@ -22,6 +23,16 @@ for f in old_files:
         date
     ) 
     os.rename(f, new_loc)
+=======
+# date = data.index[-1].strftime("%Y%m%d")
+# old_files = glob.glob('data/sir_results*.csv')
+# for f in old_files:
+#     new_loc = 'archive/{}_{}.csv'.format(
+#         f.split("/")[-1].split(".")[0],
+#         date
+#     ) 
+#     os.rename(f, new_loc)
+>>>>>>> master
 
 # Run model
 mod_locs = ['Montana', 'Missoula', 'Gallatin']
