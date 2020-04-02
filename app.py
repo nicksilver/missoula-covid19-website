@@ -25,7 +25,7 @@ zoo_cases = int(full_data[full_data['location'] == 'Missoula'].iloc[-1]['cases']
 # Data location
 
 location = st.sidebar.multiselect(
-    label='Choose other counties to view data:',
+    label='Choose other MT counties to view data:',
     options=list(full_data['location'].unique()),
     default=['Montana', 'Missoula']
 )
