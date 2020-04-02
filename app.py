@@ -39,10 +39,10 @@ if not location:
     st.error("Please select at least one location")
 
 # Model location
-mod_loc = st.sidebar.selectbox(
-    label='Choose location to run SIR model',
-    options=data.columns.to_list(),
-)
+# mod_loc = st.sidebar.selectbox(
+#     label='Choose location to run SIR model',
+#     options=data.columns.to_list(),
+# )
 
 # Data processing ============================================
 # Melt data frame
@@ -67,22 +67,22 @@ diff_melt = pd.melt(
     )
 
 # Model data
-mod_fname = 'data/sir_results_{}.csv'.format(mod_loc)
-df_mod = pd.read_csv(mod_fname, parse_dates=['Date'])
+# mod_fname = 'data/sir_results_{}.csv'.format(mod_loc)
+# df_mod = pd.read_csv(mod_fname, parse_dates=['Date'])
 
-df_mod = pd.melt(
-    df_mod, 
-    id_vars='Date', 
-    value_vars=['Actual', 'Susceptible', 'Infectious', 'Recovered'], 
-    value_name='Prediction', 
-    var_name='SIR'
-    )
+# df_mod = pd.melt(
+#     df_mod, 
+#     id_vars='Date', 
+#     value_vars=['Actual', 'Susceptible', 'Infectious', 'Recovered'], 
+#     value_name='Prediction', 
+#     var_name='SIR'
+#     )
 
-st.sidebar.markdown(
-    """
-    [Model details](<https://www.lewuathe.com/covid-19-dynamics-with-sir-model.html>) 
-    """
-    )
+# st.sidebar.markdown(
+#     """
+#     [Model details](<https://www.lewuathe.com/covid-19-dynamics-with-sir-model.html>) 
+#     """
+#     )
 
 # Plot results ============================================
 st.markdown(
@@ -121,7 +121,6 @@ chart = (
 
 st.altair_chart(chart, use_container_width=True)
 
-
 # Plot epidemic curve
 chart_diff = (
     alt.Chart(diff_melt)
@@ -136,33 +135,33 @@ chart_diff = (
 st.altair_chart(chart_diff, use_container_width=True)
 
 # Plot model results
-df_mod_sir = df_mod[df_mod['SIR'] != 'Actual']
-df_mod_act = df_mod[df_mod['SIR'] == 'Actual']
-df_mod_act['Points'] = np.repeat('Actual Confirmed', len(df_mod_act))
-chart_sir = (
-    alt.Chart(df_mod_sir)
-    .mark_line()
-    .encode(
-        x = 'Date',
-        y = 'Prediction',
-        color = 'SIR'
-    )
+# df_mod_sir = df_mod[df_mod['SIR'] != 'Actual']
+# df_mod_act = df_mod[df_mod['SIR'] == 'Actual']
+# df_mod_act['Points'] = np.repeat('Actual Confirmed', len(df_mod_act))
+# chart_sir = (
+#     alt.Chart(df_mod_sir)
+#     .mark_line()
+#     .encode(
+#         x = 'Date',
+#         y = 'Prediction',
+#         color = 'SIR'
+#     )
     
-).interactive()
+# ).interactive()
 
-chart_actual = (
-    alt.Chart(df_mod_act.dropna())
-    .mark_point(color='black')
-    .encode(
-        x = 'Date', 
-        y = alt.Y('Prediction', title='Population'),
-        shape = 'Points'
-    ).properties(title=mod_loc + ' SIR Model')
-).interactive()
+# chart_actual = (
+#     alt.Chart(df_mod_act.dropna())
+#     .mark_point(color='black')
+#     .encode(
+#         x = 'Date', 
+#         y = alt.Y('Prediction', title='Population'),
+#         shape = 'Points'
+#     ).properties(title=mod_loc + ' SIR Model')
+# ).interactive()
 
-chart_mod = alt.layer(chart_sir, chart_actual)
+# chart_mod = alt.layer(chart_sir, chart_actual)
 
-st.altair_chart(chart_mod, use_container_width=True)
+# st.altair_chart(chart_mod, use_container_width=True)
 
 # Bottom text
 st.markdown(
