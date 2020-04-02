@@ -10,48 +10,33 @@ from libs.sir_utils import *
 st.title('Missoula Covid-19 Dashboard')
 
 # Bring in data
-zoo_data = CovidTrends(county=30063).get_covid_data()
-gal_data = CovidTrends(county=30031).get_covid_data()
-data = pd.merge(
-    zoo_data, 
-    gal_data['Gallatin'], 
-    how='inner', 
-    left_index=True, 
-    right_index=True
-    )
-update = data.index[-1].strftime("%m/%d/%Y")
+county_data = CountyCovidData().cov_update()
+state_data = StateCovidData().cov_update()
+full_data = county_data.append(state_data)
+update = state_data.index[-1].strftime("%m/%d/%Y")
 st.text('Last update: {}'.format(update))
 
 # Get current numbers
-mt_cases = data['Montana'].iloc[-1]
-zoo_cases = data['Missoula'].iloc[-1]
-gal_cases = data['Gallatin'].iloc[-1]
+mt_cases = int(full_data[full_data['location'] == 'Montana'].iloc[-1]['cases'])
+zoo_cases = int(full_data[full_data['location'] == 'Missoula'].iloc[-1]['cases'])
 
 # Setup sidebar widgets =====================================
 # Data location
+
 location = st.sidebar.multiselect(
     label='Choose location to view data:',
-    options=data.columns.to_list(),
+    options=list(full_data['location'].unique()),
     default=['Montana', 'Missoula']
 )
 
 if not location:
     st.error("Please select at least one location")
 
-# Data processing ============================================
-# Melt data frame
-loc_data = data[location]
-df = loc_data.copy()
-df['Date'] = df.index
-df_melt = pd.melt(
-    df, id_vars='Date', 
-    value_vars=location, 
-    value_name='Total Cases', 
-    var_name='Location'
-    )
-
-# Calculate difference and melt dataframe
-diff = loc_data.diff()
+# Calculate difference 
+loc_data = full_data.loc[full_data['location'].isin(location)][['location','cases']]
+df_loc = loc_data.pivot(columns='location').ffill()['cases']
+diff = df_loc.diff()
+diff[diff < 0 ] = 0
 diff['Date'] = diff.index
 diff_melt = pd.melt(
     diff, id_vars='Date', 
@@ -67,7 +52,6 @@ st.markdown(
     |--------|-------------|
     |Montana |{mt_cases}   |
     |Missoula|{zoo_cases}  |
-    |Gallatin|{gal_cases}  |
     """.format(
         mt_cases=mt_cases,
         zoo_cases=zoo_cases,
@@ -78,15 +62,19 @@ st.text("")
 st.text("")
 
 # Create checkbox to view dataframe
+df_show = df_loc.copy()
+df_show.index = df_loc.index.strftime("%Y-%m-%d")
 if st.checkbox('Show Covid-19 data'):
     st.write(
         '#### Number of Confirmed Covid-19 Cases:', 
-        data.sort_index(ascending=False)
+        df_show.sort_index(ascending=False)
         )
 
 # Plot cumulative cases over time
+loc_data.columns = ['Location', 'Total Cases']
+loc_data['Date'] = loc_data.index
 chart = (
-    alt.Chart(df_melt)
+    alt.Chart(loc_data)
     .mark_line()
     .encode(
         x='Date',
