@@ -109,3 +109,39 @@ chart_diff = (
 ).interactive()
 
 st.altair_chart(chart_diff, use_container_width=True)
+
+# Bottom text
+st.markdown(
+    """
+    ### Where'd the model go?
+
+    I am taking the county-level model down for now. I am concerned about putting predictions out into the world without 
+    them being vetted by true experts in the field. I will continue to work on the SIR model behind the scenes
+    and would love to team up with folks who are interested in developing predictive tools. Feel free to contact me by email if 
+    you would like to see the model results for a specific county or if there are other ways I can help your Montana community.   
+
+    <nick.covid19@gmail.com>
+
+    ### Data sources
+    [New York Times](<https://github.com/nytimes/covid-19-data>)
+    
+    [Montana State Library](<https://montana.maps.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b>)
+    
+    Code for this website is hosted at: <https://github.com/nicksilver/missoula-covid19-website> 
+    """
+)
+st.text("")
+st.text("")
+st.text("")
+# image = Image.open('./static/logo_final_square_trans.png')
+image = Image.open('./static/logo_final_text_long_trans.png')
+st.image(image, width=200)
+
+#TODO: look into alt.Chart(source).mark_area(
+#     color="lightblue",
+#     interpolate='step-after',
+#     line=True
+# ).encode(
+#     x='date',
+#     y='price'
+# ).transform_filter(alt.datum.symbol == 'GOOG')
