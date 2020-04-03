@@ -111,16 +111,23 @@ st.markdown(
     """
     ### What's new?
 
-    I added the capability to view data for all Montana counties. You can mix and match what you would like to view. I recommend not adding too many all at once. Only Montana and 
-    Missoula, Lewis and Clark, Yellowstone, and Gallatin counties are fully up-to-date. The others are about a day or 
-    so behind because they are based on the New York Times data. 
+    I added the capability to view data for all Montana counties. You
+    can mix and match what you would like to view. I recommend not
+    adding too many all at once. Only Montana and Missoula, Lewis and
+    Clark, Yellowstone, and Gallatin counties are fully
+    up-to-date. The others are about a day or so behind because they
+    are based on the New York Times data.
 
     ### Where'd the model go?
 
-    I am taking the county-level model down for now. I am concerned about putting predictions out into the world without 
-    them being vetted by true experts in the field. I will continue to work on the SIR model behind the scenes
-    and would love to team up with folks who are interested in developing predictive tools. Feel free to contact me by email if 
-    you would like to see the model results for a specific county or if there are other ways I can help your Montana community.   
+    I am taking the county-level model down for now. I am concerned
+    about putting predictions out into the world without them being
+    vetted by true experts in the field. I will continue to work on
+    the SIR model behind the scenes and would love to team up with
+    folks who are interested in developing predictive tools. Feel free
+    to contact me by email if you would like to see the model results
+    for a specific county or if there are other ways I can help your
+    Montana community.
 
     <nick.covid19@gmail.com>
 
@@ -138,3 +145,7 @@ st.text("")
 # image = Image.open('./static/logo_final_square_trans.png')
 image = Image.open('./static/logo_final_text_long_trans.png')
 st.image(image, width=200)
+
+#TODO include all states
+#TODO go national
+#TODO calculate doubling rate for each county
