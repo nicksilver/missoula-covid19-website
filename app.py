@@ -38,8 +38,8 @@ loc_data = full_data.loc[full_data['location'].isin(location)][['location','case
 df_loc = loc_data.pivot(columns='location').ffill()['cases']
 diff = df_loc.diff()
 diff[diff < 0 ] = 0
-new_index = pd.date_range(df_loc.index.min(), datetime.today() + timedelta(days=1))
-diff = diff.reindex(new_index, method='ffill')
+# new_index = pd.date_range(df_loc.index.min(), datetime.today() + timedelta(days=1))
+# diff = diff.reindex(new_index, method='ffill')
 diff['Date'] = diff.index
 diff_melt = pd.melt(
     diff, id_vars='Date', 
