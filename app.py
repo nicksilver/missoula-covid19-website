@@ -38,8 +38,8 @@ loc_data = full_data.loc[full_data['location'].isin(location)][['location','case
 df_loc = loc_data.pivot(columns='location').ffill()['cases']
 diff = df_loc.diff()
 diff[diff < 0 ] = 0
-# new_index = pd.date_range(df_loc.index.min(), datetime.today() + timedelta(days=1))
-# diff = diff.reindex(new_index, method='ffill')
+new_index = pd.date_range(df_loc.index.min(), datetime.today() + timedelta(days=1))
+diff = diff.reindex(new_index, method='ffill')
 diff['Date'] = diff.index
 diff_melt = pd.melt(
     diff, id_vars='Date', 
@@ -108,8 +108,7 @@ st.markdown(
     """
     ### What's new?
 
-    I felt bad taking down the model so I went ahead and added the capability to view data for all Montana counties. 
-    You can mix and match what you would like to view. I recommend not adding too many all at once. Only Montana and 
+    I added the capability to view data for all Montana counties. You can mix and match what you would like to view. I recommend not adding too many all at once. Only Montana and 
     Missoula, Lewis and Clark, Yellowstone, and Gallatin counties are fully up-to-date. The others are about a day or 
     so behind because they are based on the New York Times data. 
 
@@ -136,12 +135,3 @@ st.text("")
 # image = Image.open('./static/logo_final_square_trans.png')
 image = Image.open('./static/logo_final_text_long_trans.png')
 st.image(image, width=200)
-
-#TODO: look into alt.Chart(source).mark_area(
-#     color="lightblue",
-#     interpolate='step-after',
-#     line=True
-# ).encode(
-#     x='date',
-#     y='price'
-# ).transform_filter(alt.datum.symbol == 'GOOG')
