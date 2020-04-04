@@ -13,7 +13,7 @@ class CountyCovidData(object):
     """
 
     def __init__(self, state='Montana'):
-        self.state='Montana'
+        self.state=state
 
     def get_nyt_data(self):
         datatypes = {
@@ -72,6 +72,8 @@ class CountyCovidData(object):
             full_data = self.merge_data(nyt_data, msl_data)
         else:
             full_data = nyt_data.copy()
+            full_data = full_data[['county', 'cases', 'deaths', 'source']]
+            full_data.rename(columns={'county':'location'}, inplace=True)
         return full_data
 
 class StateCovidData(object):
