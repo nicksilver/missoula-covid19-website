@@ -11,27 +11,38 @@ from libs.sir_utils import *
 st.title('Missoula Covid-19 Dashboard')
 
 # Bring in data
-county_data = CountyCovidData().cov_update()
-state_data = StateCovidData().cov_update()
-full_data = county_data.append(state_data)
+state_names = np.sort(np.load('data/state_names.npy', allow_pickle=True))
+# full_data = county_data.append(state_data)
 update = state_data.index[-1].strftime("%m/%d/%Y")
 st.text('Last update: {}'.format(update))
 
-# Get current numbers
-mt_cases = int(full_data[full_data['location'] == 'Montana'].iloc[-1]['cases'])
-zoo_cases = int(full_data[full_data['location'] == 'Missoula'].iloc[-1]['cases'])
 
 # Setup sidebar widgets =====================================
 # Data location
+mt_idx = np.int(np.argwhere(state_names == 'Montana')[0][0])
+state_loc = st.sidebar.selectbox(
+    label='Choose State',
+    options = state_names,
+    index=mt_idx
+)
+state_data = StateCovidData(state=state_loc).cov_update()
 
+county_data = CountyCovidData(state=state_loc).cov_update()
 location = st.sidebar.multiselect(
-    label='Choose other MT counties to view:',
-    options=list(full_data['location'].unique()),
-    default=['Montana', 'Missoula']
+    label='Choose County:',
+    options=list(np.sort(county_data['location'].unique())),
+    default='Missoula'
 )
 
 if not location:
     st.error("Please select at least one location")
+
+if state_loc == 'Montana':
+    # Get current numbers
+    mt_cases = int(full_data[full_data['location'] == 'Montana'].iloc[-1]['cases'])
+    zoo_cases = int(full_data[full_data['location'] == 'Missoula'].iloc[-1]['cases'])
+
+
 
 # Calculate difference 
 loc_data = full_data.loc[full_data['location'].isin(location)][['location','cases']]
