@@ -81,7 +81,7 @@ class StateCovidData(object):
     Merges NYT state data with updated MSL data and returns dataframe
     """
     def __init__(self, state='Montana'):
-        self.state='Montana'
+        self.state = state
 
     def get_nyt_data(self):
 

@@ -17,18 +17,15 @@ state_loc = st.sidebar.selectbox(
     options = state_names,
     index=mt_idx
 )
-state_data = StateCovidData(state=state_loc).cov_update()
 
-def mt_zoo_curent():
-    mt_cases = int(state_data[state_data['location'] == 'Montana'].iloc[-1]['cases'])
-    zoo_cases = int(county_data[county_data['location'] == 'Missoula'].iloc[-1]['cases'])
-    return mt_cases, zoo_cases
+state_data = StateCovidData(state=state_loc).cov_update()
 
 # Logic based on location
 if state_loc == 'Montana':
     county_data = CountyCovidData(state=state_loc).cov_update()
     default = 'Missoula'
-    mt_cases, zoo_cases = mt_zoo_curent()
+    mt_cases = int(state_data[state_data['location'] == 'Montana'].iloc[-1]['cases'])
+    zoo_cases = int(county_data[county_data['location'] == 'Missoula'].iloc[-1]['cases'])
     np.save('data/current_cases', np.array([mt_cases, zoo_cases]))
 else:
     county_data = CountyCovidData(state=state_loc).cov_update(update=False)
@@ -69,39 +66,46 @@ st.markdown(
 st.text("")
 st.text("")
 
-# Calculate county difference 
+# Create one dataframe
 county_loc = county_data.loc[county_data['location'].isin(location)][['location','cases']]
 county_df_loc = county_loc.pivot(columns='location').ffill()['cases']
-county_diff = county_df_loc.diff()
-county_diff[county_diff < 0 ] = 0
+state_df_loc = state_data[['location', 'cases']]
+state_df_loc = state_df_loc.pivot(columns='location').ffill()['cases']
+df_loc = pd.merge(
+    state_df_loc, 
+    county_df_loc, 
+    how='inner', 
+    left_index=True, 
+    right_index=True
+    )
 
-county_diff['Date'] = county_diff.index
-county_diff_melt = pd.melt(
-    county_diff, 
+# Calculate difference
+df_diff = df_loc.diff()
+df_diff[df_diff < 0] = 0
+
+# Melt dataframe
+df_melt = df_loc.copy()
+df_melt['Date'] = df_melt.index
+df_loc_melt = pd.melt(
+    df_melt, 
     id_vars='Date', 
-    value_vars=location, 
-    value_name='New Cases', 
+    value_vars=location + [state_loc], 
+    value_name='Total Cases', 
     var_name='Location'
     )
 
-# Calculate state difference
-state_loc = state_data[['location', 'cases']]
-state_df_loc = state_loc.pivot(columns='location').ffill()['cases']
-state_diff = state_df_loc.diff()
-state_diff[state_diff < 0 ] = 0
-
-state_diff['Date'] = state_diff.index
-state_diff_melt = pd.melt(
-    state_diff, 
+# Melt diff dataframe
+df_diff['Date'] = df_diff.index
+df_diff_melt = pd.melt(
+    df_diff, 
     id_vars='Date', 
-    value_vars=location, 
+    value_vars=location + [state_loc], 
     value_name='New Cases', 
     var_name='Location'
     )
 
 # Plot results ============================================
 # Create checkbox to view dataframe
-
 df_show = df_loc.copy()
 df_show.index = df_loc.index.strftime("%Y-%m-%d")
 if st.checkbox('Show Covid-19 data'):
@@ -111,10 +115,10 @@ if st.checkbox('Show Covid-19 data'):
         )
 
 # Plot cumulative cases over time
-loc_data.columns = ['Location', 'Total Cases']
-loc_data['Date'] = loc_data.index
+# df_loc_melt.columns = ['Location', 'Total Cases']
+# loc_data['Date'] = loc_data.index
 chart = (
-    alt.Chart(loc_data)
+    alt.Chart(df_loc_melt)
     .mark_line()
     .encode(
         x='Date',
@@ -126,7 +130,7 @@ chart = (
 st.altair_chart(chart, use_container_width=True)
 
 chart_diff = (
-    alt.Chart(diff_melt)
+    alt.Chart(df_diff_melt)
     .mark_area(
         line=True, 
         opacity=0.4, 
