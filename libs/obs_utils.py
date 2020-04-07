@@ -139,6 +139,8 @@ class StateCovidData(object):
             full_data = self.merge_data(nyt_data, msl_data)
         else:
             full_data = nyt_data.copy()
+            full_data = full_data[['state', 'cases', 'deaths', 'source']]
+            full_data.rename(columns={'state':'location'}, inplace=True)
         return full_data
 
     
