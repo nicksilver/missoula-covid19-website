@@ -7,51 +7,52 @@ from datetime import timedelta
 from libs.obs_utils import *
 from libs.sir_utils import *
 
-# Setup title and welcome
-st.title('Missoula Covid-19 Dashboard')
 
-# Bring in data
-county_data = CountyCovidData().cov_update()
-state_data = StateCovidData().cov_update()
-full_data = county_data.append(state_data)
-update = state_data.index[-1].strftime("%m/%d/%Y")
-st.text('Last update: {}'.format(update))
+# Bring in data and setup sidebar widgets =====================================
+# Select state sidebar
+state_names = np.sort(np.load('data/state_names.npy', allow_pickle=True))
+mt_idx = np.int(np.argwhere(state_names == 'Montana')[0][0])
+state_loc = st.sidebar.selectbox(
+    label='Choose State',
+    options = state_names,
+    index=mt_idx
+)
 
-# Get current numbers
-mt_cases = int(full_data[full_data['location'] == 'Montana'].iloc[-1]['cases'])
-zoo_cases = int(full_data[full_data['location'] == 'Missoula'].iloc[-1]['cases'])
 
-# Setup sidebar widgets =====================================
-# Data location
+# Logic based on location
+if state_loc == 'Montana':
+    state_data = StateCovidData(state=state_loc).cov_update()
+    county_data = CountyCovidData(state=state_loc).cov_update()
+    default = 'Missoula'
+    mt_cases = int(state_data[state_data['location'] == 'Montana'].iloc[-1]['cases'])
+    zoo_cases = int(county_data[county_data['location'] == 'Missoula'].iloc[-1]['cases'])
+    np.save('data/current_cases', np.array([mt_cases, zoo_cases]))
+else:
+    state_data = StateCovidData(state=state_loc).cov_update(update=False)
+    county_data = CountyCovidData(state=state_loc).cov_update(update=False)
+    default = county_data['location'].iloc[0]
+    current_cases = np.load('data/current_cases.npy', allow_pickle=True)
+    mt_cases = int(current_cases[0])
+    zoo_cases = int(current_cases[1])
 
+# Select county sidebar
 location = st.sidebar.multiselect(
-    label='Choose other MT counties to view:',
-    options=list(full_data['location'].unique()),
-    default=['Montana', 'Missoula']
+    label='Choose County:',
+    options=list(np.sort(county_data['location'].unique())),
+    default=default
 )
 
 if not location:
-    st.error("Please select at least one location")
+    st.error("Please select at least one county")
 
-# Calculate difference 
-loc_data = full_data.loc[full_data['location'].isin(location)][['location','cases']]
-df_loc = loc_data.pivot(columns='location').ffill()['cases']
-diff = df_loc.diff()
-diff[diff < 0 ] = 0
+# Title and update ===============================================================
+st.title('Missoula Covid-19 Dashboard')
+update = state_data.index[-1].strftime("%m/%d/%Y")
+st.text('Last update: {}'.format(update))
+st.text("")
+st.text("")
 
-# This is the forward fill by one day to make the chart look better
-# new_index = pd.date_range(df_loc.index.min(), datetime.today() + timedelta(days=1))
-# diff = diff.reindex(new_index, method='ffill')
-
-diff['Date'] = diff.index
-diff_melt = pd.melt(
-    diff, id_vars='Date', 
-    value_vars=location, 
-    value_name='New Cases', 
-    var_name='Location'
-    )
-
-# Plot results ============================================
+# Current status in Montana and Missoula (static)
 st.markdown(
     """
     |        | Total Cases |
@@ -66,32 +67,79 @@ st.markdown(
 st.text("")
 st.text("")
 
+# Create one dataframe
+county_loc = county_data.loc[county_data['location'].isin(location)][['location','cases']]
+county_df_loc = county_loc.pivot(columns='location').ffill()['cases']
+state_df_loc = state_data[['location', 'cases']]
+state_df_loc = state_df_loc.pivot(columns='location').ffill()['cases']
+df_loc = pd.merge(
+    state_df_loc, 
+    county_df_loc, 
+    how='inner', 
+    left_index=True, 
+    right_index=True
+    )
+
+# Melt dataframe
+df_melt = df_loc.copy()
+df_melt['Date'] = df_melt.index
+df_loc_melt = pd.melt(
+    df_melt, 
+    id_vars='Date', 
+    value_vars=location + [state_loc], 
+    value_name='Total Cases', 
+    var_name='Location'
+    )
+
+# Plot results ============================================
 # Create checkbox to view dataframe
 df_show = df_loc.copy()
 df_show.index = df_loc.index.strftime("%Y-%m-%d")
-if st.checkbox('Show Covid-19 data'):
+if st.checkbox('Show Covid-19 raw data'):
     st.write(
         '#### Number of Confirmed Covid-19 Cases:', 
         df_show.sort_index(ascending=False)
         )
 
-# Plot cumulative cases over time
-loc_data.columns = ['Location', 'Total Cases']
-loc_data['Date'] = loc_data.index
+# Plot cumulative chart
 chart = (
-    alt.Chart(loc_data)
+    alt.Chart(df_loc_melt)
     .mark_line()
     .encode(
         x='Date',
         y='Total Cases',
-        color='Location'
+        color='Location',
+        tooltip=['Date', 'Total Cases']
     )
 ).interactive()
 
 st.altair_chart(chart, use_container_width=True)
 
+# Plot diff chart
+
+# Calculate difference
+if st.checkbox('Show doubling time'):
+    df_diff = 0.7/df_loc.pct_change()
+    ylab = '# days'
+else:
+    df_diff = df_loc.diff()
+    ylab = 'New Cases'
+
+df_diff[df_diff < 0] = 0
+df_diff = df_diff[~df_diff.isin([np.nan, np.inf, -np.inf]).any(1)]
+df_diff['Date'] = df_diff.index
+
+# Melt diff dataframe
+df_diff_melt = pd.melt(
+    df_diff, 
+    id_vars='Date', 
+    value_vars=location + [state_loc], 
+    value_name=ylab, 
+    var_name='Location'
+    )
+
 chart_diff = (
-    alt.Chart(diff_melt)
+    alt.Chart(df_diff_melt)
     .mark_area(
         line=True, 
         opacity=0.4, 
@@ -99,8 +147,9 @@ chart_diff = (
     )
     .encode(
         x='Date',
-        y=alt.Y('New Cases', stack=False),
+        y=alt.Y(ylab, stack=False),
         color='Location',
+        tooltip = ['Date', ylab]
     )
 ).interactive()
 
@@ -111,25 +160,12 @@ st.markdown(
     """
     ### What's new?
 
-    I added the capability to view data for all Montana counties. You
-    can mix and match what you would like to view. I recommend not
-    adding too many all at once. Only Montana and Missoula, Lewis and
-    Clark, Yellowstone, and Gallatin counties are fully
-    up-to-date. The others are about a day or so behind because they
-    are based on the New York Times data.
+    - All states and counties have been added.
 
-    ### Where'd the model go?
+    - Added approximate doubling time based on the percent change from the 
+    previous day.
 
-    I am taking the county-level model down for now. I am concerned
-    about putting predictions out into the world without them being
-    vetted by true experts in the field. I will continue to work on
-    the SIR model behind the scenes and would love to team up with
-    folks who are interested in developing predictive tools. Feel free
-    to contact me by email if you would like to see the model results
-    for a specific county or if there are other ways I can help your
-    Montana community.
-
-    <nick.covid19@gmail.com>
+    - Can now hover over an area and get the value on both charts.   
 
     ### Data sources
     [New York Times](<https://github.com/nytimes/covid-19-data>)
@@ -146,6 +182,4 @@ st.text("")
 image = Image.open('./static/logo_final_text_long_trans.png')
 st.image(image, width=200)
 
-#TODO include all states
-#TODO go national
-#TODO calculate doubling rate for each county
+#TODO tooltip
