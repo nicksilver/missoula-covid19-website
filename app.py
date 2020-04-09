@@ -166,6 +166,8 @@ st.markdown(
     """
     ### What's new?
 
+    - Added model comparison for Montana (see link in sidebar)
+
     - All states and counties have been added.
 
     - Added approximate doubling time based on the percent change from the 
