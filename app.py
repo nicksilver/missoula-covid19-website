@@ -45,6 +45,12 @@ location = st.sidebar.multiselect(
 if not location:
     st.error("Please select at least one county")
 
+st.sidebar.markdown(
+    """
+    [View MT Model Comparison](http://mtmodcomp.missoulacov19.com)
+    """
+)
+
 # Title and update ===============================================================
 st.title('Missoula Covid-19 Dashboard')
 update = state_data.index[-1].strftime("%m/%d/%Y")
