@@ -7,14 +7,19 @@ from datetime import timedelta
 from libs.obs_utils import *
 from libs.sir_utils import *
 from libs.gsheet import *
+import os
+import json
 
 # Google Sheets credentials
 SPREADSHEET_ID = "1ZHnIEjpFZ9U9Iu5VJfdTVKU2NiVBMtrvjDekRKsXmLs"
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets',]
-GSHEETS_KEY = "google-credentials.json"
+# GSHEETS_KEY = "google-credentials.json"
+
+GOOGLE_CREDS = json.loads(os.getenv('GOOGLE_CREDENTIALS')) 
+
 
 # Bring in Google Sheets data
-gs_df = gsheet2df(SPREADSHEET_ID, GSHEETS_KEY, SCOPE)
+gs_df = gsheet2df(SPREADSHEET_ID, GOOGLE_CREDS, SCOPE)
 update = gs_df.Date.iloc[-1]
 mt_cases = gs_df['Active infected'].iloc[-1]
 zoo_cases = gs_df['Active Missoula'].iloc[-1]

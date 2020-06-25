@@ -11,7 +11,7 @@ def gsheet2df(spreadsheet_id, key, scope):
     Need to setup service account first, then share service account email with the Google Sheet. 
     See https://www.datasciencelearner.com/get-data-of-google-sheets-using-pandas/
     """
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(key, scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(key, scope)
     gc = gspread.authorize(credentials)
 
     workbook = gc.open_by_key(spreadsheet_id)
