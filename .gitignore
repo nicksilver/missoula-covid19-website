@@ -7,8 +7,7 @@ __pycache__/
 *.so
 
 # Credentials
-credentials.json
-MissoulaCovid19-1799de069711.json
+google-credentials.json
 
 #VSCode
 .vscode/

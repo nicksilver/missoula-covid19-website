@@ -11,7 +11,7 @@ from libs.gsheet import *
 # Google Sheets credentials
 SPREADSHEET_ID = "1ZHnIEjpFZ9U9Iu5VJfdTVKU2NiVBMtrvjDekRKsXmLs"
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets',]
-GSHEETS_KEY = "MissoulaCovid19-1799de069711.json"
+GSHEETS_KEY = "google-credentials.json"
 
 # Bring in Google Sheets data
 gs_df = gsheet2df(SPREADSHEET_ID, GSHEETS_KEY, SCOPE)
@@ -269,5 +269,3 @@ st.text("")
 # image = Image.open('./static/logo_final_square_trans.png')
 image = Image.open('./static/logo_final_text_long_trans.png')
 st.image(image, width=200)
-
-#TODO tooltip
