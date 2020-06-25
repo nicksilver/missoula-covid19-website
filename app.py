@@ -27,6 +27,13 @@ zoo_cases = gs_df['Active Missoula'].iloc[-1]
 # Title
 st.title('Missoula Covid-19 Dashboard')
 st.text('Last update: {}'.format(update))
+st.markdown(
+    """
+    The State has put together a very nice [Montana Covid-19 Dashboard](https://montana.maps.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b)
+    but it focuses on the geographic spread of the virus. This dashboard shows how things are changing over time. I built this mainly for me to keep track of things, but maybe others
+    will find it helpful.
+    """
+)
 st.text("")
 st.text("")
 
