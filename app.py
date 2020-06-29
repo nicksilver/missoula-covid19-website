@@ -13,13 +13,13 @@ import json
 # Google Sheets credentials
 SPREADSHEET_ID = "1ZHnIEjpFZ9U9Iu5VJfdTVKU2NiVBMtrvjDekRKsXmLs"
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets',]
-# GSHEETS_KEY = "google-credentials.json"
+# GOOGLE_CREDS = "google-credentials.json"
 
 GOOGLE_CREDS = json.loads(os.getenv('GOOGLE_CREDENTIALS')) 
 
 
 # Bring in Google Sheets data
-gs_df = gsheet2df(SPREADSHEET_ID, GOOGLE_CREDS, SCOPE)
+gs_df = gsheet2df(SPREADSHEET_ID, GOOGLE_CREDS, SCOPE, debug=False)
 update = gs_df.Date.iloc[-1]
 mt_cases = gs_df['Active infected'].iloc[-1]
 zoo_cases = gs_df['Active Missoula'].iloc[-1]
@@ -71,7 +71,19 @@ testing_df = pd.DataFrame(gs_df['Tests completed'])
 testing_df.columns = ['Tests Completed']
 
 # Plot active cases
+zoo_pop = 120000
+mt_pop = 1069000
+
+active_df['Missoula'] = pd.to_numeric(active_df.loc[:, 'Missoula'])
+active_df['Montana'] = pd.to_numeric(active_df.loc[:, 'Montana'])
 active_df.index = active_df.index.strftime("%Y-%m-%d")
+if st.checkbox('Show Data Normalized by Population'):
+    active_df['Missoula'] = 100000*(active_df.loc[:, 'Missoula']/zoo_pop)
+    active_df['Montana'] = 100000*(active_df.loc[:, 'Montana']/mt_pop)
+    active_lab = 'Active Cases / 100k People'
+else:
+    active_lab = 'Active Cases'
+
 if st.checkbox('Show Raw Data For Active Cases'):
     st.write(
         '#### Active cases:', 
@@ -80,13 +92,11 @@ if st.checkbox('Show Raw Data For Active Cases'):
 
 # Plot active cases
 active_df['Date'] = pd.to_datetime(active_df.index)
-active_df['Montana'] = pd.to_numeric(active_df.loc[:, 'Montana'])
-active_df['Missoula'] = pd.to_numeric(active_df.loc[:, 'Missoula'])
 active_melt = pd.melt(
     active_df,
     id_vars='Date',
     var_name = 'Location',
-    value_name='Active Cases'
+    value_name= active_lab
 )
 
 active_chart = (
@@ -94,9 +104,9 @@ active_chart = (
     .mark_line()
     .encode(
         x='Date',
-        y='Active Cases',
+        y=active_lab,
         color='Location',
-        tooltip=['Date', 'Active Cases']
+        tooltip=['Date', active_lab]
     )
 ).interactive()
 
@@ -110,6 +120,7 @@ st.markdown(
     To get exact numbers select the checkbox below or zoom and hover on the chart.
     """
 )
+
 
 testing_df.index = testing_df.index.strftime("%Y-%m-%d")
 if st.checkbox('Show Raw Data For Daily Tests Completed'):
@@ -265,7 +276,9 @@ st.altair_chart(chart_diff, use_container_width=True)
 st.markdown(
     """
     ### What's new?
-    New layout with Missoula specific charts added (6/25/2020)
+    - Normalized MT active cases by population (6/29/2020)
+
+    - New layout with Missoula specific charts added (6/25/2020)
 
     ### Data sources
     [New York Times](<https://github.com/nytimes/covid-19-data>)
