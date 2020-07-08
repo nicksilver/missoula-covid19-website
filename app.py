@@ -13,13 +13,13 @@ import json
 # Google Sheets credentials
 SPREADSHEET_ID = "1ZHnIEjpFZ9U9Iu5VJfdTVKU2NiVBMtrvjDekRKsXmLs"
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets',]
-# GOOGLE_CREDS = "google-credentials.json"
+GOOGLE_CREDS = "google-credentials.json"
 
-GOOGLE_CREDS = json.loads(os.getenv('GOOGLE_CREDENTIALS')) 
+# GOOGLE_CREDS = json.loads(os.getenv('GOOGLE_CREDENTIALS')) 
 
 
 # Bring in Google Sheets data
-gs_df = gsheet2df(SPREADSHEET_ID, GOOGLE_CREDS, SCOPE, debug=False)
+gs_df = gsheet2df(SPREADSHEET_ID, GOOGLE_CREDS, SCOPE, debug=True)
 update = gs_df.Date.iloc[-1]
 mt_cases = gs_df['Active infected'].iloc[-1]
 zoo_cases = gs_df['Active Missoula'].iloc[-1]
@@ -161,7 +161,7 @@ st.markdown(
 state_names = np.sort(np.load('data/state_names.npy', allow_pickle=True))
 mt_idx = np.int(np.argwhere(state_names == 'Montana')[0][0])
 state_loc = st.selectbox(
-    label='Choose State',
+    label='Choose State:',
     options = state_names,
     index=mt_idx
 )
@@ -196,6 +196,15 @@ df_loc = pd.merge(
     left_index=True, 
     right_index=True
     )
+
+# Select start date
+month_list = df_loc.index.strftime('%B').unique()
+start_month = st.selectbox(
+    label = 'Choose Start Month:',
+    options = list(month_list),
+)
+start_date = datetime.strptime(start_month + ' 2020', '%B %Y')
+df_loc = df_loc.loc[df_loc.index > start_date]
 
 # Melt dataframe
 df_melt = df_loc.copy()
