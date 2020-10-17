@@ -224,3 +224,30 @@ class CovidTrends(object):
         return df 
 
 # CovidTrends(county=30063).get_covid_data()
+
+def add_color_style(x):
+    """Adds color to CDC indicator table"""
+    
+    df = x.copy()
+    if df['14-day New Cases'] > 200:
+        df['14-day New Cases'] = 'background-color: Red'
+    elif (df['14-day New Cases'] <= 200) & (df['14-day New Cases'] > 50):
+        df['14-day New Cases'] = 'background-color: DarkOrange'
+    elif (df['14-day New Cases'] <= 50) & (df['14-day New Cases'] > 20):
+        df['14-day New Cases'] = 'background-color: Yellow'
+    elif (df['14-day New Cases'] <= 20) & (df['14-day New Cases'] > 5):
+        df['14-day New Cases'] = 'background-color: YellowGreen'
+    elif (df['14-day New Cases'] <= 5):
+        df['14-day New Cases'] = 'background-color: DarkGreen'
+    
+    if df['% Change'] > 10:
+        df['% Change'] = 'background-color: Red'
+    elif (df['% Change'] <= 10) & (df['% Change'] > 0):
+        df['% Change'] = 'background-color: DarkOrange'
+    elif (df['% Change'] <= 0) & (df['% Change'] > -5):
+        df['% Change'] = 'background-color: Yellow'   
+    elif (df['% Change'] <= -5) & (df['% Change'] > -10):
+        df['% Change'] = 'background-color: YellowGreen'
+    elif (df['% Change'] <= -10):
+        df['% Change'] = 'background-color: DarkGreen'    
+    return df
