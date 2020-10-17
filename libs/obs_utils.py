@@ -249,5 +249,16 @@ def add_color_style(x):
     elif (df['% Change'] <= -5) & (df['% Change'] > -10):
         df['% Change'] = 'background-color: YellowGreen'
     elif (df['% Change'] <= -10):
-        df['% Change'] = 'background-color: DarkGreen'    
+        df['% Change'] = 'background-color: DarkGreen'   
+
+    if df['Positivity Rate'] > 10:
+        df['Positivity Rate'] = 'background-color: Red'
+    elif (df['Positivity Rate'] <= 10) & (df['Positivity Rate'] > 8):
+        df['Positivity Rate'] = 'background-color: DarkOrange'
+    elif (df['Positivity Rate'] <= 8) & (df['Positivity Rate'] > 5):
+        df['Positivity Rate'] = 'background-color: Yellow'   
+    elif (df['Positivity Rate'] <= 5) & (df['Positivity Rate'] > 3):
+        df['Positivity Rate'] = 'background-color: YellowGreen'
+    elif (df['Positivity Rate'] <= 3):
+        df['Positivity Rate'] = 'background-color: DarkGreen'     
     return df

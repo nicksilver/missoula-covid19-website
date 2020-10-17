@@ -66,24 +66,11 @@ testing_df.columns = ['Tests Completed']
 zoo_pop = 120000
 mt_pop = 1069000
 
-# Number of new cases per 100k within last 14 days
-last14 = gs_df.iloc[-14:]
-first = int(last14['Missoula'].iloc[0])
-last = int(last14['Missoula'].iloc[-1])
-diff = last - first
-diff_norm = 100000*(diff/zoo_pop)
-
-# Percent change in new cases per 100,000 during last 7 days compared to previous 7 days
-last7 = last14.iloc[-7:]
-prev7 = last14.iloc[:7]
-last_diff = 100000*((int(last7['Missoula'].iloc[-1]) - int(last7['Missoula'].iloc[0]))/zoo_pop)
-prev_diff = 100000*((int(prev7['Missoula'].iloc[-1]) - int(prev7['Missoula'].iloc[0]))/zoo_pop)
-perc_diff = 100*((last_diff - prev_diff)/prev_diff)
-
 # Create dataframe with CDC indicators
 cdc_df = pd.DataFrame({
-    '14-day New Cases': [diff_norm],
-    '% Change': [perc_diff]
+    '14-day New Cases': [float(gs_df['Missoula New Cases'].iloc[-1])],
+    '% Change': [float(gs_df['Missoula % Change'].iloc[-1])],
+    'Positivity Rate': [float(gs_df['Missoula Positivity Rate'].iloc[-1])]
 })
 
 st.markdown(
@@ -96,6 +83,9 @@ st.markdown(
     
     Click [here](https://www.cdc.gov/coronavirus/2019-ncov/downloads/community/schools-childcare/indicators-thresholds-table.pdf)
     for CDC details on the indicators and color coding. 
+    
+    _**Positivity Rate**_ is updated every week or so and is based on a 7-day average rather than the CDC 
+    Recommended 14-day average. 
     """
 )
 
@@ -333,6 +323,10 @@ st.markdown(
     [New York Times](<https://github.com/nytimes/covid-19-data>)
     
     [Montana State Library](<https://montana.maps.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b>)
+    
+    [CDC COVID-19 School Indicators](<https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/indicators.html#thresholds>)
+
+    [MCPS COVID-19 Advisory](<https://www.mcpsmt.org/COVID-19>)
     
     Code for this website is hosted at: <https://github.com/nicksilver/missoula-covid19-website> 
     """
