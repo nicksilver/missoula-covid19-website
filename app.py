@@ -321,6 +321,8 @@ st.altair_chart(chart_diff, use_container_width=True)
 st.markdown(
     """
     ### What's new?
+    - Added some of the CDC indicators for schools (10/17/2020)
+    
     - Added 'start month' selection (7/08/2020)
 
     - Normalized MT active cases by population (6/29/2020)
