@@ -68,9 +68,11 @@ mt_pop = 1069000
 
 # Create dataframe with CDC indicators
 cdc_df = pd.DataFrame({
-    '14-day New Cases': [float(gs_df['Missoula New Cases'].iloc[-1])],
-    '14-day % Change': [float(gs_df['Missoula % Change'].iloc[-1])],
-    '7-day Positivity Rate': [float(gs_df['Missoula Positivity Rate'].iloc[-1])]
+    '14day New Cases': [float(gs_df['Missoula New Cases'].iloc[-1])],
+    '14day % Change': [float(gs_df['Missoula % Change'].iloc[-1])],
+    '7day Pos. Rate': [float(gs_df['Missoula Positivity Rate'].iloc[-1])],
+    'Hosp. % Full': [float(gs_df['Missoula Hosp. % Full'].iloc[-1])],
+    'Hosp. % COV19': [float(gs_df['Missoula Cov. Hosp. %'].iloc[-1])]
 })
 
 st.markdown(
@@ -89,7 +91,7 @@ st.markdown(
     """
 )
 
-st.dataframe(cdc_df.style.apply(add_color_style, axis=1))
+st.table(cdc_df.style.apply(add_color_style, axis=1))
 
 
 st.markdown(
@@ -320,13 +322,15 @@ st.markdown(
     - New layout with Missoula specific charts added (6/25/2020)
 
     ### Data sources
-    [New York Times](<https://github.com/nytimes/covid-19-data>)
-    
     [Montana State Library](<https://montana.maps.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b>)
     
     [CDC COVID-19 School Indicators](<https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/indicators.html#thresholds>)
 
     [MCPS COVID-19 Advisory](<https://www.mcpsmt.org/COVID-19>)
+
+    [MT DPHHS COVID-19 Advisory](<https://dphhs.mt.gov/publichealth/cdepi/diseases/coronavirusmt>)
+
+    [New York Times](<https://github.com/nytimes/covid-19-data>)
     
     Code for this website is hosted at: <https://github.com/nicksilver/missoula-covid19-website> 
     """
