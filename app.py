@@ -78,20 +78,26 @@ cdc_df = pd.DataFrame({
 st.markdown(
     """
     ### CDC Indicators for Transmission of COVID-19 in Missoula Schools
-    Below are the values the CDC recommends for schools to use to determine risk
-    of transmission. They are calculated for Missoula County. At this time, these are the
-    only indicators available for the public. I will continue to try to update with more information
-    as it becomes available. 
+
+    Below are some of the values the CDC recommends for schools to use to determine risk
+    of transmission. They are calculated for Missoula County. 
     
     Click [here](https://www.cdc.gov/coronavirus/2019-ncov/downloads/community/schools-childcare/indicators-thresholds-table.pdf)
     for CDC details on the indicators and color coding. 
     
-    _**Positivity Rate**_ is updated every week or so and is based on a 7-day average rather than the CDC 
-    recommended 14-day average. 
+    **TL;DR** => green(ish) is good; red(ish) is bad. 
+
     """
 )
 
 st.table(cdc_df.style.apply(add_color_style, axis=1))
+
+st.markdown(
+    """
+    _**Positivity Rate**_ is updated every week or so and is based on a 7-day average rather than the CDC 
+    recommended 14-day average. 
+    """
+)
 
 
 st.markdown(
