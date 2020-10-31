@@ -252,7 +252,7 @@ def add_color_style(x):
         df['14day % Change'] = 'background-color: DarkGreen'   
 
     if df['7day Pos. Rate'] > 10:
-        df['7day Positivity Rate'] = 'background-color: Red'
+        df['7day Pos. Rate'] = 'background-color: Red'
     elif (df['7day Pos. Rate'] <= 10) & (df['7day Pos. Rate'] > 8):
         df['7day Pos. Rate'] = 'background-color: DarkOrange'
     elif (df['7day Pos. Rate'] <= 8) & (df['7day Pos. Rate'] > 5):
