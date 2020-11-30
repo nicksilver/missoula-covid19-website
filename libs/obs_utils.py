@@ -262,25 +262,25 @@ def add_color_style(x):
     elif (df['7day Pos. Rate'] <= 3):
         df['7day Pos. Rate'] = 'background-color: DarkGreen'     
 
-    if df['Hosp. % Full'] > 95:
-        df['Hosp. % Full'] = 'background-color: Red'
-    elif (df['Hosp. % Full'] <= 95) & (df['Hosp. % Full'] > 90):
-        df['Hosp. % Full'] = 'background-color: DarkOrange'
-    elif (df['Hosp. % Full'] <= 90) & (df['Hosp. % Full'] > 80):
-        df['Hosp. % Full'] = 'background-color: Yellow'   
-    elif (df['Hosp. % Full'] <= 80) & (df['Hosp. % Full'] > 75):
-        df['Hosp. % Full'] = 'background-color: YellowGreen'
-    elif (df['Hosp. % Full'] <= 75):
-        df['Hosp. % Full'] = 'background-color: DarkGreen'     
+    # if df['Hosp. % Full'] > 95:
+    #     df['Hosp. % Full'] = 'background-color: Red'
+    # elif (df['Hosp. % Full'] <= 95) & (df['Hosp. % Full'] > 90):
+    #     df['Hosp. % Full'] = 'background-color: DarkOrange'
+    # elif (df['Hosp. % Full'] <= 90) & (df['Hosp. % Full'] > 80):
+    #     df['Hosp. % Full'] = 'background-color: Yellow'
+    # elif (df['Hosp. % Full'] <= 80) & (df['Hosp. % Full'] > 75):
+    #     df['Hosp. % Full'] = 'background-color: YellowGreen'
+    # elif (df['Hosp. % Full'] <= 75):
+    #     df['Hosp. % Full'] = 'background-color: DarkGreen'
         
-    if df['Hosp. % COV19'] > 20:
-        df['Hosp. % COV19'] = 'background-color: Red'
-    elif (df['Hosp. % COV19'] <= 20) & (df['Hosp. % COV19'] > 15):
-        df['Hosp. % COV19'] = 'background-color: DarkOrange'
-    elif (df['Hosp. % COV19'] <= 15) & (df['Hosp. % COV19'] > 10):
-        df['Hosp. % COV19'] = 'background-color: Yellow'   
-    elif (df['Hosp. % COV19'] <= 10) & (df['Hosp. % COV19'] > 5):
-        df['Hosp. % COV19'] = 'background-color: YellowGreen'
-    elif (df['Hosp. % COV19'] <= 5):
-        df['Hosp. % COV19'] = 'background-color: DarkGreen'    
+    # if df['Hosp. % COV19'] > 20:
+    #     df['Hosp. % COV19'] = 'background-color: Red'
+    # elif (df['Hosp. % COV19'] <= 20) & (df['Hosp. % COV19'] > 15):
+    #     df['Hosp. % COV19'] = 'background-color: DarkOrange'
+    # elif (df['Hosp. % COV19'] <= 15) & (df['Hosp. % COV19'] > 10):
+    #     df['Hosp. % COV19'] = 'background-color: Yellow'
+    # elif (df['Hosp. % COV19'] <= 10) & (df['Hosp. % COV19'] > 5):
+    #     df['Hosp. % COV19'] = 'background-color: YellowGreen'
+    # elif (df['Hosp. % COV19'] <= 5):
+    #     df['Hosp. % COV19'] = 'background-color: DarkGreen'
     return df
