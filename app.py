@@ -70,9 +70,9 @@ mt_pop = 1069000
 cdc_df = pd.DataFrame({
     '14day New Cases': [float(gs_df['Missoula New Cases'].iloc[-1])],
     '14day % Change': [float(gs_df['Missoula % Change'].iloc[-1])],
-    '7day Pos. Rate': [float(gs_df['Missoula Positivity Rate'].iloc[-1])]
-    # 'Hosp. % Full': [float(gs_df['Missoula Hosp. % Full'].iloc[-1])],
-    # 'Hosp. % COV19': [float(gs_df['Missoula Cov. Hosp. %'].iloc[-1])]
+    '7day Pos. Rate': [float(gs_df['Missoula Positivity Rate'].iloc[-1])],
+    'Hosp. % Full': [float(gs_df['Missoula Hosp. % Full'].iloc[-1])],
+    'Hosp. % COV19': [float(gs_df['Missoula Cov. Hosp. %'].iloc[-1])]
 })
 
 st.markdown(
